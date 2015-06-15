@@ -14,6 +14,11 @@ namespace DinnerPartyRoa.App_Start
         public static void RunDbMigrations()
         {
             Database.SetInitializer<ApplicationDbContext>(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+
+            using (var context = new ApplicationDbContext())
+            {
+                context.Database.Initialize(false);
+            }
         }
     }
 }

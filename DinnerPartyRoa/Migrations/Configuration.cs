@@ -9,7 +9,7 @@ namespace DinnerPartyRoa.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(DinnerPartyRoa.Models.ApplicationDbContext context)
