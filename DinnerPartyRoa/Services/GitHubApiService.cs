@@ -11,12 +11,12 @@ namespace DinnerPartyRoa.Services
 {
     public class GitHubApiService
     {
-        public List<GitHubUser> users { get; set; }
+        public List<GitHubUser> Users { get; set; }
 
         public List<GitHubUser> GetGitHubUsers()
         {
             TalkToGithub();
-            return users;
+            return Users;
         }
 
 
@@ -45,6 +45,7 @@ namespace DinnerPartyRoa.Services
         private List<GitHubUser> AddToList(string json)
         {
             var individualUser = new List<GitHubUser>();
+            //ask dan about dynamic data and whether its the best option to take
             dynamic data = JObject.Parse(json);
 
             var name = data.login.ToString();
