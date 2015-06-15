@@ -212,7 +212,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MenuItem.cs" />
-    <Compile Include="Models\PersonPlacingOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\Scrapper.cs" />
     <Compile Include="Startup.cs" />
@@ -226,14 +225,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-<<<<<<< HEAD
     <Content Include="Scripts\App\App.js" />
     <Content Include="Scripts\App\Controller\MenuItemController.js" />
     <Content Include="Scripts\App\Model\MenuItemsModel.js" />
     <Content Include="Scripts\App\View\MenuItemsView.js" />
-=======
     <Content Include="Icon.png" />
->>>>>>> 8e62f0d6b3d7d047f35b143b870c6cc634b25902
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -245,8 +241,6 @@
     <None Include="Properties\PublishProfiles\phasepartydinner.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DinnerJs.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

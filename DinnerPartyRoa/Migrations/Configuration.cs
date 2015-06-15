@@ -13,6 +13,7 @@ namespace DinnerPartyRoa.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(DinnerPartyRoa.Models.ApplicationDbContext context)
