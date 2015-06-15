@@ -1,5 +1,9 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.Net;
+=======
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+>>>>>>> 95ab70e92c8902112c3dc798c18c0eb27e5dacd0
 using NUnit.Framework;
 
 
