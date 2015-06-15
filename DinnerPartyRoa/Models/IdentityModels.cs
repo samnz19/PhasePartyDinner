@@ -20,10 +20,18 @@ namespace DinnerPartyRoa.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public ApplicationDbContext(): base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("aroy");
+
+            base.OnModelCreating(modelBuilder);
+        }
+
 
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<PersonPlacingOrder> PersonPlacingOrders { get; set; }
