@@ -62,12 +62,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ScrapperLibrary\ScrapperLibrary.csproj">
-      <Project>{838bbdd5-f081-4b27-b7dc-f351d2e9b7b7}</Project>
-      <Name>ScrapperLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
