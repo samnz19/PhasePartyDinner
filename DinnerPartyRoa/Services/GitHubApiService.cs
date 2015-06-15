@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
 using DinnerPartyRoa.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace DinnerPartyRoa.Services
@@ -47,6 +48,7 @@ namespace DinnerPartyRoa.Services
             var individualUser = new List<GitHubUser>();
             //ask dan about dynamic data and whether its the best option to take
             dynamic data = JObject.Parse(json);
+           // JsonConvert.DeserializeObject<GitHubUser>(json);
 
             var name = data.login.ToString();
             individualUser.Add(new GitHubUser(){Name = name});
