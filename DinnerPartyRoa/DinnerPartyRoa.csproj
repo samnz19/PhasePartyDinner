@@ -213,6 +213,7 @@
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\PersonPlacingOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\Scrapper.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
