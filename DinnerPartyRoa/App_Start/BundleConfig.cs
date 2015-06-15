@@ -23,6 +23,12 @@ namespace DinnerPartyRoa
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                        "~/Scripts/App/*.js",
+                        "~/Scripts/App/Controller/*.js",
+                        "~/Scripts/App/Model/*.js",
+                         "~/Scripts/App/View/*.js"));
+    
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

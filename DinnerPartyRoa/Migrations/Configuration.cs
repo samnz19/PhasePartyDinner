@@ -1,3 +1,6 @@
+using System.Security.Cryptography;
+using DinnerPartyRoa.Models;
+
 namespace DinnerPartyRoa.Migrations
 {
     using System;
@@ -10,6 +13,7 @@ namespace DinnerPartyRoa.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(DinnerPartyRoa.Models.ApplicationDbContext context)
@@ -19,13 +23,22 @@ namespace DinnerPartyRoa.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            //context.MenuItems.AddOrUpdate(
+            //  p => p.Title,
+            //  new MenuItem[] { Title = "Andrew Peters" },
+            //  new MenuItem() { FullName = "Brice Lambson" },
+            //  new MenuItem() { FullName = "Rowan Miller" }
+            //);
+            context.MenuItems.AddOrUpdate(
+                x => x.Title,
+                new MenuItem() { Title = "Pad Thai"},
+                new MenuItem() { Title = "Ginger Chicken"},
+                new MenuItem() { Title = "Plum Duck"},
+                new MenuItem() { Title = "Steamed Chiken Rice"},
+                new MenuItem() { Title = "Green Curry"},
+                new MenuItem() {  Title = "Chili Chicken"},
+                new MenuItem() { Title = "Wonton Soup with BBQ Pork"}
+                );
         }
     }
 }
