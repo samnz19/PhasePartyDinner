@@ -195,6 +195,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuItemsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,7 +226,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+<<<<<<< HEAD
+    <Content Include="Scripts\App\App.js" />
+    <Content Include="Scripts\App\Controller\MenuItemController.js" />
+    <Content Include="Scripts\App\Model\MenuItemsModel.js" />
+    <Content Include="Scripts\App\View\MenuItemsView.js" />
+=======
     <Content Include="Icon.png" />
+>>>>>>> 8e62f0d6b3d7d047f35b143b870c6cc634b25902
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
