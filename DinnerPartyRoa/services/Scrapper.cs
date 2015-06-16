@@ -49,7 +49,7 @@ namespace DinnerPartyRoa.services
 
 
                         var pelement = new MenuItem() {Title = title};
-                        var imagelement = new MenuItem() {Image = imageUrl};
+                        var imagelement = new MenuItem() {Image = null};
 
                         db.MenuItems.Add(pelement);
                         db.MenuItems.Add(imagelement);

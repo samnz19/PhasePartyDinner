@@ -207,12 +207,19 @@
     <Compile Include="Migrations\201506150010459_namespaceTables.Designer.cs">
       <DependentUpon>201506150010459_namespaceTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506160333214_Order_Table.cs" />
+    <Compile Include="Migrations\201506160333214_Order_Table.Designer.cs">
+      <DependentUpon>201506160333214_Order_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\GitHubUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\GitHubApiService.cs" />
     <Compile Include="services\Scrapper.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -308,6 +315,9 @@
     <EmbeddedResource Include="Migrations\201506150010459_namespaceTables.resx">
       <DependentUpon>201506150010459_namespaceTables.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506160333214_Order_Table.resx">
+      <DependentUpon>201506160333214_Order_Table.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -323,7 +333,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49893</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

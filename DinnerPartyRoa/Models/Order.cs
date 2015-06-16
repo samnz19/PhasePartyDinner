@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DinnerPartyRoa.Models
 {
-    class Order
+    public class Order
     {
+        public int Id { get; set; }
+        public virtual GitHubUser User { get; set; }
+        public virtual MenuItem Item { get; set; }
     }
 }
