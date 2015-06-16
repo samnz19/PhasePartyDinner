@@ -1,33 +1,16 @@
-﻿@model DinnerPartyRoa.Models.MenuItem
+﻿@using DinnerPartyRoa.Models
+@model List<Order>
 
-@{
-    Layout = null;
-}
+<div id="OrderTable">
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Report</title>
-</head>
-<body>
-    <div id="OrderTable">
-        <!--
-            HTML Table
-            Table Rows
-                (Item Name)
-        -->
-        <table id="Orders">
+    <table id="Orders">
+        @foreach (var order in Model)
+        {
             <tr>
-                <!--Razor foreach to for MenuItem Title-->
-                @foreach (var item in Model)
-                {
-                    <td>@item.Title</td>
-                }
+                <td>@order.Item.Title</td>
+                <td>@order.User.Name</td>
             </tr>
-        </table>
-    </div>
+        }
 
-</body>
-</html>
+    </table>
+</div>

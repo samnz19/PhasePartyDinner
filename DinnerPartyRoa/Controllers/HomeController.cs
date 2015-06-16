@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DinnerPartyRoa.App_Start;
+using DinnerPartyRoa.Models;
 
 namespace DinnerPartyRoa.Controllers
 {
@@ -28,6 +29,13 @@ namespace DinnerPartyRoa.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Order()
+        {
+            OrderData data = new OrderData();
+
+            return View(data.Read());
         }
     }
 }
