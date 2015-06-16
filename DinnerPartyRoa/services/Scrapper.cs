@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using DinnerPartyRoa.Models;
 using HtmlAgilityPack;
+using Microsoft.Owin.Security.Provider;
 
 namespace DinnerPartyRoa.services
 {
    public class Scrapper
-    {
+   {
+       string urlToLoad = "http://www.aroy.co.nz/";
         public  void Aroy()
         {
             ApplicationDbContext db=new ApplicationDbContext();
@@ -17,8 +21,8 @@ namespace DinnerPartyRoa.services
             HtmlDocument htmlDoc = new HtmlAgilityPack.HtmlDocument();
             htmlDoc.OptionFixNestedTags = true;
 
-            string urlToLoad = "http://www.aroy.co.nz/menu.html";
-            HttpWebRequest request = HttpWebRequest.Create(urlToLoad) as HttpWebRequest;
+
+            HttpWebRequest request = HttpWebRequest.Create(urlToLoad + "menu.html") as HttpWebRequest;
             request.Method = "GET";
             /* Sart browser signature */
             request.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0";
@@ -38,10 +42,17 @@ namespace DinnerPartyRoa.services
                     foreach (var articleNode in articleNodes)
                     {
                         var titleNode = articleNode.SelectSingleNode("p");
+                        var imageNode = articleNode.SelectSingleNode("a/img");
+
+                        var title = WebUtility.HtmlDecode(titleNode.InnerText.Trim());
+                        var imageUrl=Imageextraction(imageNode.GetAttributeValue("src","wrong"));
 
 
-                        db.MenuItems.Add(new MenuItem() {Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim())});
+                        var pelement = new MenuItem() {Title = title};
+                        var imagelement = new MenuItem() {Image = imageUrl};
 
+                        db.MenuItems.Add(pelement);
+                        db.MenuItems.Add(imagelement);
                     }
                 }
             }
@@ -49,6 +60,32 @@ namespace DinnerPartyRoa.services
        
 
 
+     
         }
+
+       public byte[] Imageextraction(string realtiveUrl)
+       {
+
+           using (var client = new HttpClient())
+           {
+               client.BaseAddress = new Uri(urlToLoad);
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("image/jpeg"));
+
+
+               HttpResponseMessage response = client.GetAsync(realtiveUrl).Result;
+               if (response.IsSuccessStatusCode)
+               {
+                   //add to list
+                   return response.Content.ReadAsByteArrayAsync().Result;
+               
+
+
+               }
+
+           }
+           return null;
+           
+       }
     }
 }
