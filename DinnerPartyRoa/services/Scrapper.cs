@@ -11,14 +11,15 @@ using Microsoft.Owin.Security.Provider;
 
 namespace DinnerPartyRoa.services
 {
-   public class Scrapper
+    public class Scrapper
+    
    {
        string urlToLoad = "http://www.aroy.co.nz/";
-
-        public  void Aroy()
-        {
-            ApplicationDbContext db=new ApplicationDbContext();
     
+        public void Aroy()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+
             HtmlDocument htmlDoc = new HtmlAgilityPack.HtmlDocument();
             htmlDoc.OptionFixNestedTags = true;
 
@@ -30,7 +31,7 @@ namespace DinnerPartyRoa.services
             request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
             request.Headers.Add(HttpRequestHeader.AcceptLanguage, "en-us,en;q=0.5");
             /* Sart browser signature */
-            
+
             WebResponse response = request.GetResponse();
 
             htmlDoc.Load(response.GetResponseStream(), true);
@@ -48,6 +49,7 @@ namespace DinnerPartyRoa.services
                         var title = WebUtility.HtmlDecode(titleNode.InnerText.Trim());
                         var imageUrl=Imageextraction(imageNode.GetAttributeValue("src","wrong"));
 
+                        db.MenuItems.Add(new MenuItem() { Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()) });
 
                         var pelement = new MenuItem() {Title = title};
                         var imagelement = new MenuItem() {Image = imageUrl};
@@ -60,10 +62,6 @@ namespace DinnerPartyRoa.services
 
 
             }
-
-       
-
-
      
         }
 

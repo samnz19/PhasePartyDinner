@@ -7,17 +7,14 @@
         var html =
             "<div>" +
                 "<p>" + items[i]["Title"] + "</p>" +
-                "<img src='" + items[i]["Image"] + "'/>" +
+                "<img id='ItemPreview' src='data:image/jpeg;base64," + items[i]["Image"] + "'/>" +
+                // "<img src='" + items[i]["Image"] + "'/>" +
             "</div>";
         htmlMenu.push(html);
     }
     console.log('prepData:' + htmlMenu);
     injectHTML(htmlMenu);
 }
-
-
-
-
 
 function injectHTML(htmlMenu) {
     //
