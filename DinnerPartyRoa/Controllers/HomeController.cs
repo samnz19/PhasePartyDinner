@@ -12,13 +12,14 @@ namespace DinnerPartyRoa.Controllers
 {
     public class HomeController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
         Scrapper scrap = new Scrapper();
+        ApplicationDbContext db = new ApplicationDbContext();
+       
         //GitHubApiService github = new GitHubApiService();
         
         public ActionResult Index()
         {
-            scrap.Aroy();
+            
             DBConfig.RunDbMigrations();
             //ViewBag.userNames = github.GetGitHubUsers();
             return View(db.MenuItems.ToList());
