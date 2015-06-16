@@ -32,5 +32,12 @@ namespace DinnerPartyRoa.Controllers
 
             return View();
         }
+
+        public ActionResult Order()
+        {
+            OrderData data = new OrderData();
+
+            return View(data.Read());
+        }
     }
 }

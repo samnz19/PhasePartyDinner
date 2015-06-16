@@ -17,16 +17,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Dinner", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("DInner", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                   
+<<<<<<< HEAD
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Order", "Order", "Home")</li>
+=======
                     <li>@Html.ActionLink("Report", "About", "Home")</li>
                     
-                  
-                    <li>@Html.ActionLink("Order", "Order", "Home")</li>
+>>>>>>> master
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
