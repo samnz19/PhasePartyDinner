@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+
+div #col1 {
+    float:left;
+    height:200px; width:40%;
+overflow:hidden; overflow-y:scroll;
+    border-width: 5px;
+    border-color: black;
+
+}
+
+div #col2{ float: right;
+  margin: 0 1.5%;
+  width: 30%;
+    
+}
