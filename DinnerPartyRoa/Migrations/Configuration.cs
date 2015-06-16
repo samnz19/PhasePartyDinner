@@ -77,11 +77,11 @@ namespace DinnerPartyRoa.Migrations
 
             context.Orders.AddRange(
                 new List<Order>(){
-                new Order() { Item = item1, User = user1},
-                new Order() { Item = item1, User = user2},
-                new Order() { Item = item2, User = user2},
-                new Order() { Item = item3, User = user1},
-                new Order() { Item = item3, User = user3}
+                new Order() { Item = item1, User = user1, CreatedOn = DateTime.Now},
+                new Order() { Item = item1, User = user2, CreatedOn = DateTime.Now},
+                new Order() { Item = item2, User = user2, CreatedOn = DateTime.Now},
+                new Order() { Item = item3, User = user1, CreatedOn = DateTime.Now},
+                new Order() { Item = item3, User = user3, CreatedOn = DateTime.Now}
                 }
             );
 
