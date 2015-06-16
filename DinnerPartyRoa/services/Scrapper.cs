@@ -55,14 +55,18 @@ namespace DinnerPartyRoa.services
                             {
                                 imageUrl = Imageextraction(imageNode.GetAttributeValue("src", "wrong"));
                             }
+                            MenuItem menuitem = new MenuItem()
+                            {
+                                Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()),
+                                Image = imageUrl
+                            };
+                            db.MenuItems.Add(menuitem);
 
-                            db.MenuItems.Add(new MenuItem() { Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()) });
+                            //var pelement = new MenuItem() { Title = title };
+                            //var imagelement = new MenuItem() { Image = null };
 
-                            var pelement = new MenuItem() { Title = title };
-                            var imagelement = new MenuItem() { Image = null };
-
-                            db.MenuItems.Add(pelement);
-                            db.MenuItems.Add(imagelement);
+                            //db.MenuItems.Add(pelement);
+                            //db.MenuItems.Add(imagelement);
                             db.SaveChanges();
                         }
                     }
