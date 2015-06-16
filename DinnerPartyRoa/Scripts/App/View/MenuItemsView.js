@@ -15,10 +15,6 @@
     injectHTML(htmlMenu);
 }
 
-
-
-
-
 function injectHTML(htmlMenu) {
     //
     console.log('htmlMenu:' + htmlMenu);

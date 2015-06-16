@@ -36,7 +36,7 @@ namespace DinnerPartyRoa.Migrations
                 new MenuItem() { Title = "Plum Duck"},
                 new MenuItem() { Title = "Steamed Chiken Rice"},
                 new MenuItem() { Title = "Green Curry"},
-                new MenuItem() {  Title = "Chili Chicken"},
+                new MenuItem() { Title = "Chili Chicken"},
                 new MenuItem() { Title = "Wonton Soup with BBQ Pork"}
                 );
         }

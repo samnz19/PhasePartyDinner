@@ -7,5 +7,6 @@ namespace DinnerPartyRoa.Models
 {
     public class GitHubUser
     {
+
     }
 }
