@@ -1,12 +1,15 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: red;
+    color: white;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +24,24 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+
+
+div #col1 {
+    float:left;
+    height:200px; width:40%;
+overflow:hidden; overflow-y:scroll;
+ border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    background-color: black;
+
+}
+
+div #col2{ float: right;
+  margin: 0 1.5%;
+  width: 30%;
+
+    
 }

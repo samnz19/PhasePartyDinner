@@ -1,6 +1,61 @@
-﻿@{
+﻿@model IEnumerable<DinnerPartyRoa.Models.MenuItem>
+
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div id="menulist"></div>
+@Styles.Render("~/Content/css")
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="~/Scripts/persondetails.js" type="text/javascript"></script>
+<body>
 
+    <div id ="background">
+<h1>Welcome</h1>
+    <p>
+        Hi and welcome to our wonderful app we created to help with the end of phase parties. First off, if your a current student,
+        Congratulations on finishing your current phase. Trust us, we know how hard it can be. If your a returning student then welcome back to DEV academy and we hope you enjoy your night.
+    </p>
+    <p>
+        To use our application, just simply click on the menu item you wish to order below and then enter in your GitHub user name in form beside it.
+        Don't worry if you do not have a GitHub username, simply ask your partner for theirs
+    </p>
+
+    <div id ="menu"><h2>Menu:</h2></div>
+
+
+
+    <div id="col1">
+
+        <ul>
+            @{
+                int count = 0;
+            }
+            @foreach (var item in Model)
+            {
+                count++;
+                <li class="li:@count">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </li>
+            }
+
+
+        </ul>
+    </div>
+    
+    
+    <div id="col2">
+        <h2>Personal Details:</h2>
+        
+           <p>Hi, your current order is:</p>
+        <p id="currentorder"></p>
+            <p>Please enter in your GitHub Username:</p>
+        
+        <form>
+            <input type="text" name="username">
+            <input type="submit" value="Submit">
+        </form>
+</div>
+</div>
+
+</body>
