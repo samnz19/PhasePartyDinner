@@ -8,12 +8,12 @@ using HtmlAgilityPack;
 
 namespace DinnerPartyRoa.services
 {
-   public class Scrapper
+    public class Scrapper
     {
-        public  void Aroy()
+        public void Aroy()
         {
-            ApplicationDbContext db=new ApplicationDbContext();
-    
+            ApplicationDbContext db = new ApplicationDbContext();
+
             HtmlDocument htmlDoc = new HtmlAgilityPack.HtmlDocument();
             htmlDoc.OptionFixNestedTags = true;
 
@@ -25,7 +25,7 @@ namespace DinnerPartyRoa.services
             request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
             request.Headers.Add(HttpRequestHeader.AcceptLanguage, "en-us,en;q=0.5");
             /* Sart browser signature */
-            
+
             WebResponse response = request.GetResponse();
 
             htmlDoc.Load(response.GetResponseStream(), true);
@@ -40,15 +40,11 @@ namespace DinnerPartyRoa.services
                         var titleNode = articleNode.SelectSingleNode("p");
 
 
-                        db.MenuItems.Add(new MenuItem() {Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim())});
+                        db.MenuItems.Add(new MenuItem() { Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()) });
 
                     }
                 }
             }
-
-       
-
-
         }
     }
 }

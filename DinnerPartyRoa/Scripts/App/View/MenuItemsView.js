@@ -7,7 +7,8 @@
         var html =
             "<div>" +
                 "<p>" + items[i]["Title"] + "</p>" +
-                "<img src='" + items[i]["Image"] + "'/>" +
+                "<img id='ItemPreview' src='data:image/jpeg;base64,'" + Image + "'/>" +
+                // "<img src='" + items[i]["Image"] + "'/>" +
             "</div>";
         htmlMenu.push(html);
     }

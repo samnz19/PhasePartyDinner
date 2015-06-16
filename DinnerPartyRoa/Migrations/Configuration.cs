@@ -29,9 +29,11 @@ namespace DinnerPartyRoa.Migrations
             //  new MenuItem() { FullName = "Brice Lambson" },
             //  new MenuItem() { FullName = "Rowan Miller" }
             //);
+            var image = new ImageModel();
+
             context.MenuItems.AddOrUpdate(
                 x => x.Title,
-                new MenuItem() { Title = "Pad Thai"},
+                new MenuItem() { Title = "Pad Thai", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/20111103padthai.jpg")},
                 new MenuItem() { Title = "Ginger Chicken"},
                 new MenuItem() { Title = "Plum Duck"},
                 new MenuItem() { Title = "Steamed Chiken Rice"},
