@@ -47,16 +47,24 @@ namespace DinnerPartyRoa.services
                         var imageNode = articleNode.SelectSingleNode("a/img");
 
                         var title = WebUtility.HtmlDecode(titleNode.InnerText.Trim());
-                        var imageUrl=Imageextraction(imageNode.GetAttributeValue("src","wrong"));
 
-                        db.MenuItems.Add(new MenuItem() { Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()) });
+                        if (!string.IsNullOrEmpty(title))
+                        {
+                            byte[] imageUrl = null;
+                            if (imageNode != null)
+                            {
+                                imageUrl = Imageextraction(imageNode.GetAttributeValue("src", "wrong"));
+                            }
 
-                        var pelement = new MenuItem() {Title = title};
-                        var imagelement = new MenuItem() {Image = null};
+                            db.MenuItems.Add(new MenuItem() { Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()) });
 
-                        db.MenuItems.Add(pelement);
-                        db.MenuItems.Add(imagelement);
-                        db.SaveChanges();
+                            var pelement = new MenuItem() { Title = title };
+                            var imagelement = new MenuItem() { Image = null };
+
+                            db.MenuItems.Add(pelement);
+                            db.MenuItems.Add(imagelement);
+                            db.SaveChanges();
+                        }
                     }
                 }
 

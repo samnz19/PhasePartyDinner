@@ -199,13 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506160438478_init.cs" />
-    <Compile Include="Migrations\201506160438478_init.Designer.cs">
-      <DependentUpon>201506160438478_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506160333214_Order_Table.cs" />
-    <Compile Include="Migrations\201506160333214_Order_Table.Designer.cs">
-      <DependentUpon>201506160333214_Order_Table.cs</DependentUpon>
+    <Compile Include="Migrations\201506161019283_init.cs" />
+    <Compile Include="Migrations\201506161019283_init.Designer.cs">
+      <DependentUpon>201506161019283_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -310,11 +306,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506160438478_init.resx">
-      <DependentUpon>201506160438478_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506160333214_Order_Table.resx">
-      <DependentUpon>201506160333214_Order_Table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506161019283_init.resx">
+      <DependentUpon>201506161019283_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

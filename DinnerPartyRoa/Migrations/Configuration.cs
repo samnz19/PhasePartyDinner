@@ -31,16 +31,25 @@ namespace DinnerPartyRoa.Migrations
             //);
             var image = new ImageModel();
 
-            context.MenuItems.AddOrUpdate(
-                x => x.Title,
-                new MenuItem() { Title = "Pad Thai", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/20111103padthai.jpg")},
-                new MenuItem() { Title = "Ginger Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GingerChicken.jpg") },
-                new MenuItem() { Title = "Plum Duck", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/PlumDuck.jpg") },
-                new MenuItem() { Title = "Steamed Chiken Rice", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/SteamedChicken.jpg") },
-                new MenuItem() { Title = "Green Curry", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GreenCurry.jpg") },
-                new MenuItem() { Title = "Chili Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/ChiliChicken.jpg") },
-                new MenuItem() { Title = "Wonton Soup with BBQ Pork", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/Wonton.jpg")}
-                );
+            //context.MenuItems.AddOrUpdate(
+            //    x => x.Title,
+            //     new MenuItem() { Title = "Pad Thai" },
+            //    new MenuItem() { Title = "Ginger Chicken"},
+            //    new MenuItem() { Title = "Plum Duck"},
+            //    new MenuItem() { Title = "Steamed Chiken Rice" },
+            //    new MenuItem() { Title = "Green Curry"},
+            //    new MenuItem() { Title = "Chili Chicken"},
+            //    new MenuItem() { Title = "Wonton Soup with BBQ Pork"}
+
+
+            //    //new MenuItem() { Title = "Pad Thai", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/20111103padthai.jpg")},
+            //    //new MenuItem() { Title = "Ginger Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GingerChicken.jpg") },
+            //    //new MenuItem() { Title = "Plum Duck", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/PlumDuck.jpg") },
+            //    //new MenuItem() { Title = "Steamed Chiken Rice", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/SteamedChicken.jpg") },
+            //    //new MenuItem() { Title = "Green Curry", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GreenCurry.jpg") },
+            //    //new MenuItem() { Title = "Chili Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/ChiliChicken.jpg") },
+            //    //new MenuItem() { Title = "Wonton Soup with BBQ Pork", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/Wonton.jpg")}
+            //    );
         }
     }
 }

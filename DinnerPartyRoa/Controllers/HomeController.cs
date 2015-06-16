@@ -5,16 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using DinnerPartyRoa.App_Start;
 using DinnerPartyRoa.Models;
+using DinnerPartyRoa.services;
+using DinnerPartyRoa.Services;
 
 namespace DinnerPartyRoa.Controllers
 {
     public class HomeController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
-
+        Scrapper scrap = new Scrapper();
+        //GitHubApiService github = new GitHubApiService();
+        
         public ActionResult Index()
         {
+            scrap.Aroy();
             DBConfig.RunDbMigrations();
+            //ViewBag.userNames = github.GetGitHubUsers();
             return View(db.MenuItems.ToList());
 
         }
