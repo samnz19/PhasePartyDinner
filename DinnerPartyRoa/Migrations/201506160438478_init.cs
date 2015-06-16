@@ -8,27 +8,17 @@ namespace DinnerPartyRoa.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.MenuItems",
+                "aroy.MenuItems",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
-                        Image = c.String(),
+                        Image = c.Binary(),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.PersonPlacingOrders",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Item = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.AspNetRoles",
+                "aroy.AspNetRoles",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
@@ -38,20 +28,20 @@ namespace DinnerPartyRoa.Migrations
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
-                "dbo.AspNetUserRoles",
+                "aroy.AspNetUserRoles",
                 c => new
                     {
                         UserId = c.String(nullable: false, maxLength: 128),
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("aroy.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("aroy.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.AspNetUsers",
+                "aroy.AspNetUsers",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
@@ -71,7 +61,7 @@ namespace DinnerPartyRoa.Migrations
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
-                "dbo.AspNetUserClaims",
+                "aroy.AspNetUserClaims",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -80,11 +70,11 @@ namespace DinnerPartyRoa.Migrations
                         ClaimValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("aroy.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.AspNetUserLogins",
+                "aroy.AspNetUserLogins",
                 c => new
                     {
                         LoginProvider = c.String(nullable: false, maxLength: 128),
@@ -92,30 +82,29 @@ namespace DinnerPartyRoa.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("aroy.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropTable("dbo.AspNetUserLogins");
-            DropTable("dbo.AspNetUserClaims");
-            DropTable("dbo.AspNetUsers");
-            DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.AspNetRoles");
-            DropTable("dbo.PersonPlacingOrders");
-            DropTable("dbo.MenuItems");
+            DropForeignKey("aroy.AspNetUserRoles", "UserId", "aroy.AspNetUsers");
+            DropForeignKey("aroy.AspNetUserLogins", "UserId", "aroy.AspNetUsers");
+            DropForeignKey("aroy.AspNetUserClaims", "UserId", "aroy.AspNetUsers");
+            DropForeignKey("aroy.AspNetUserRoles", "RoleId", "aroy.AspNetRoles");
+            DropIndex("aroy.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("aroy.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("aroy.AspNetUsers", "UserNameIndex");
+            DropIndex("aroy.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("aroy.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("aroy.AspNetRoles", "RoleNameIndex");
+            DropTable("aroy.AspNetUserLogins");
+            DropTable("aroy.AspNetUserClaims");
+            DropTable("aroy.AspNetUsers");
+            DropTable("aroy.AspNetUserRoles");
+            DropTable("aroy.AspNetRoles");
+            DropTable("aroy.MenuItems");
         }
     }
 }

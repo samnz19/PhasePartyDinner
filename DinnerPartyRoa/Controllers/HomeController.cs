@@ -10,10 +10,12 @@ namespace DinnerPartyRoa.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             DBConfig.RunDbMigrations();
-            return View();
+            return View(db.MenuItems.ToList());
 
         }
 

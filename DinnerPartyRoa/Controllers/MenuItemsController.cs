@@ -9,16 +9,19 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DinnerPartyRoa.Models;
+using DinnerPartyRoa.services;
 
 namespace DinnerPartyRoa.Controllers
 {
     public class MenuItemsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+       // Scrapper scrap = new Scrapper(); 
 
         // GET: api/MenuItems
         public IQueryable<MenuItem> GetMenuItems()
         {
+          // scrap.Aroy();
             return db.MenuItems;
         }
 

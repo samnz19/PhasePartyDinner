@@ -14,6 +14,7 @@ namespace DinnerPartyRoa.services
    public class Scrapper
    {
        string urlToLoad = "http://www.aroy.co.nz/";
+
         public  void Aroy()
         {
             ApplicationDbContext db=new ApplicationDbContext();
@@ -53,8 +54,11 @@ namespace DinnerPartyRoa.services
 
                         db.MenuItems.Add(pelement);
                         db.MenuItems.Add(imagelement);
+                        db.SaveChanges();
                     }
                 }
+
+
             }
 
        
@@ -76,11 +80,7 @@ namespace DinnerPartyRoa.services
                HttpResponseMessage response = client.GetAsync(realtiveUrl).Result;
                if (response.IsSuccessStatusCode)
                {
-                   //add to list
                    return response.Content.ReadAsByteArrayAsync().Result;
-               
-
-
                }
 
            }
