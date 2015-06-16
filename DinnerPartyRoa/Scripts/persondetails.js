@@ -7,7 +7,7 @@
         $('#currentorder').empty();
         currentSelectedItem = $(this).text();
         $('#currentorder').append(currentSelectedItem);
-        $('#currentorder').css('color', 'black');
+        $('#currentorder').css('color', 'pink');
     });
 
 
