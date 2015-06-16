@@ -2,6 +2,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: #e04a3b;
+    min-height: 800px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -10,6 +11,7 @@
     padding-right: 15px;
     background-color: white;
     color:black;
+    height: 900px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -30,10 +32,10 @@ textarea {
 
 div #col1 {
     float:left;
-    height:200px; width:40%;
-overflow:hidden; overflow-y:scroll;
- border-style: solid;
- color: white;
+    height:600px; width:40%;
+    overflow:hidden; overflow-y:scroll;
+    border-style: solid;
+    color: white;
     border-width: 1px;
     border-color: black;
     background-color: black;
@@ -42,7 +44,20 @@ overflow:hidden; overflow-y:scroll;
 
 div #col2{ float: right;
   margin: 0 1.5%;
-  width: 30%;
-
-    
+  width: 30%;  
 }
+
+.pic {
+    float: right;
+}
+
+.menulist {
+    border-width: 0 2px 2px 2px;
+    border-style: solid;
+    border-color: lightgrey;
+}
+
+.menulist:first-of-type {
+    border-top-width: 2px;
+}
+
