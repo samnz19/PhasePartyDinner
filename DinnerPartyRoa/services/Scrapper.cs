@@ -57,7 +57,8 @@ namespace DinnerPartyRoa.services
                             }
                             MenuItem menuitem = new MenuItem()
                             {
-                                Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim())
+                                Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()),
+                                Image = imageUrl
                             };
                             db.MenuItems.Add(menuitem);
 
