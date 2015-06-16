@@ -1,0 +1,33 @@
+﻿@model DinnerPartyRoa.Models.MenuItem
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Report</title>
+</head>
+<body>
+    <div id="OrderTable">
+        <!--
+            HTML Table
+            Table Rows
+                (Item Name)
+        -->
+        <table id="Orders">
+            <tr>
+                <!--Razor foreach to for MenuItem Title-->
+                @foreach (var item in Model)
+                {
+                    <td>@item.Title</td>
+                }
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
