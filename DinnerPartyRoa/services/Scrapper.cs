@@ -14,37 +14,36 @@ using MenuItem = DinnerPartyRoa.Models.MenuItem;
 namespace DinnerPartyRoa.services
 {
     public class Scrapper
-    
-   {
+    {
         ApplicationDbContext db = new ApplicationDbContext();
-       string urlToLoad = "http://www.aroy.co.nz/";
-        
+        string urlToLoad = "http://www.aroy.co.nz/";
 
-       public byte[] Imageextraction(string realtiveUrl)
-       {
 
-           using (var client = new HttpClient())
-           {
-               client.BaseAddress = new Uri(urlToLoad);
+        public byte[] Imageextraction(string realtiveUrl)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(urlToLoad);
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("image/jpeg"));
 
 
-               HttpResponseMessage response = client.GetAsync(realtiveUrl).Result;
-               if (response.IsSuccessStatusCode)
-               {
-                   return response.Content.ReadAsByteArrayAsync().Result;
-               }
+                HttpResponseMessage response = client.GetAsync(realtiveUrl).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    return response.Content.ReadAsByteArrayAsync().Result;
+                }
 
-           }
-           return null;
-           
-       }
+            }
+            return null;
+
+        }
 
         public List<MenuItem> GetList()
         {
             List<MenuItem> menulist = new List<MenuItem>();
-           
+
 
             HtmlDocument htmlDoc = new HtmlDocument();
             htmlDoc.OptionFixNestedTags = true;
@@ -86,10 +85,7 @@ namespace DinnerPartyRoa.services
                                 Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()),
                                 Image = image
                             };
-                             menulist.Add(menuitem);
-
-
-                          
+                            menulist.Add(menuitem);
                         }
                     }
                 }
@@ -112,5 +108,5 @@ namespace DinnerPartyRoa.services
             List<MenuItem> list = GetList();
             SaveItems(list);
         }
-   }
+    }
 }
