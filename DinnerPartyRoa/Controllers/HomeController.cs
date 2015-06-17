@@ -44,7 +44,7 @@ namespace DinnerPartyRoa.Controllers
         {
             OrderData data = new OrderData();
 
-            return View(data.Read());
+            return View(data.ReadByQuantity());
         }
     }
 }

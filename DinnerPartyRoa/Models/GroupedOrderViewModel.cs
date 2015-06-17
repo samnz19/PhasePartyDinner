@@ -8,6 +8,10 @@ namespace DinnerPartyRoa.Models
 {
     public class GroupedOrderViewModel
     {
-        
+        //Name of item
+        //Number of orders for that item
+
+        public string ItemName { get; set; }
+        public int Quantity { get; set; }
     }
 }
