@@ -8,7 +8,7 @@
         currentSelectedItem = $.trim($(this).text());
         console.log(currentSelectedItem);
         $('#currentorder').attr("value", currentSelectedItem);
-        $('#currentorder').css('color', 'pink');
+        $('#currentorder').css('color', 'blue');
     });
 
     array = GetNames();
@@ -42,3 +42,13 @@ var GetNames = function () {
 
     return array;
 }
+
+$('#submitbutton').on('click', function() {
+
+    $.ajax({
+        type: 'POST',
+        url: '/api/orders/',
+        success: function ()
+
+    });
+})
