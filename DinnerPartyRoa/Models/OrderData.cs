@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
+using Microsoft.Owin.Security.Provider;
 
 namespace DinnerPartyRoa.Models
 {
@@ -10,15 +12,22 @@ namespace DinnerPartyRoa.Models
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        //Re-Arrange method to render ViewModel for view
-
         public List<Order> Read()
         {
             Order newestOrder = db.Orders.OrderByDescending(n => n.CreatedOn).FirstOrDefault();
             DateTime weeksOrder = newestOrder.CreatedOn.Date;
-            List<Order> orders = db.Orders.Where(s => EntityFunctions.TruncateTime(s.CreatedOn) == weeksOrder).ToList();
+            List<Order> orders = db.Orders.Where(s => DbFunctions.TruncateTime(s.CreatedOn) >= weeksOrder).ToList();
             return orders;
         }
-        
+
+        public IEnumerable<GroupedOrderViewModel> ReadByQuantity()
+        {   
+            //List of Orders from Read method above.
+            List<Order> orders = Read();
+
+            IEnumerable<GroupedOrderViewModel> orderSummary = orders.GroupBy(m => m.Item.Title).Select(s => new GroupedOrderViewModel(){ItemName = s.Key, Quantity = s.Count()});
+      
+            return orderSummary;
+        }   
     }
 }
