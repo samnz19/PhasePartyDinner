@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
 
@@ -10,9 +11,13 @@ namespace DinnerPartyRoa.Models
         ApplicationDbContext db = new ApplicationDbContext();
 
         //Re-Arrange method to render ViewModel for view
+
         public List<Order> Read()
         {
-            return db.Orders.Select(s => s).ToList(); 
+            Order newestOrder = db.Orders.OrderByDescending(n => n.CreatedOn).FirstOrDefault();
+            DateTime weeksOrder = newestOrder.CreatedOn.Date;
+            List<Order> orders = db.Orders.Where(s => EntityFunctions.TruncateTime(s.CreatedOn) == weeksOrder).ToList();
+            return orders;
         }
         
     }
