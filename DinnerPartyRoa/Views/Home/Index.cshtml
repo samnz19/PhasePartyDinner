@@ -11,8 +11,8 @@
 
 
 
-    <div id ="background">
-<h1>Welcome</h1>
+<div id="background">
+    <h1>Welcome</h1>
     <p>
         Hi and welcome to our wonderful app we created to help with the end of phase parties. First off, if your a current student,
         Congratulations on finishing your current phase. Trust us, we know how hard it can be. If your a returning student then welcome back to DEV academy and we hope you enjoy your night.
@@ -22,9 +22,7 @@
         Don't worry if you do not have a GitHub username, simply ask your partner for theirs
     </p>
 
-    <div id ="menu"><h2>Menu:</h2></div>
-
-
+    <div id="menu"><h2>Menu:</h2></div>
 
     <div id="col1">
 
@@ -35,28 +33,32 @@
             @foreach (var item in Model)
             {
                 count++;
-                <li class="li:@count">
-                    @Html.DisplayFor(modelItem => item.Title)
+
+                <li class="li:@count menulist">               
+                        <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
+                        @if (item.Image != null)
+                        {
+                            <div class="right"><img src='@Url.Action("food", "images", new {id = item.Id})' /></div>
+                        }
                 </li>
             }
 
-
         </ul>
     </div>
-    
-    
+
+
     <div id="col2">
         <h2>Personal Details:</h2>
-        
-           <p>Hi, your current order is:</p>
+
+        <p>Hi, your current order is:</p>
         <p id="currentorder"></p>
-            <p>Please enter in your GitHub Username:</p>
-        
+        <p>Please enter in your GitHub Username:</p>
+
         <form>
             <input type="text" name="username" id="name" style="color:black;">
             <input type="submit" value="Submit">
         </form>
-</div>
+    </div>
 </div>
 
 

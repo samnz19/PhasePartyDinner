@@ -5,26 +5,52 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+
 using DinnerPartyRoa.Models;
 using HtmlAgilityPack;
-using Microsoft.Owin.Security.Provider;
+
+using MenuItem = DinnerPartyRoa.Models.MenuItem;
 
 namespace DinnerPartyRoa.services
 {
     public class Scrapper
     
    {
+        ApplicationDbContext db = new ApplicationDbContext();
        string urlToLoad = "http://www.aroy.co.nz/";
-    
-        public void Aroy()
-        {
-            ApplicationDbContext db = new ApplicationDbContext();
+        
 
-            HtmlDocument htmlDoc = new HtmlAgilityPack.HtmlDocument();
+       public byte[] Imageextraction(string realtiveUrl)
+       {
+
+           using (var client = new HttpClient())
+           {
+               client.BaseAddress = new Uri(urlToLoad);
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("image/jpeg"));
+
+
+               HttpResponseMessage response = client.GetAsync(realtiveUrl).Result;
+               if (response.IsSuccessStatusCode)
+               {
+                   return response.Content.ReadAsByteArrayAsync().Result;
+               }
+
+           }
+           return null;
+           
+       }
+
+        public List<MenuItem> GetList()
+        {
+            List<MenuItem> menulist = new List<MenuItem>();
+           
+
+            HtmlDocument htmlDoc = new HtmlDocument();
             htmlDoc.OptionFixNestedTags = true;
 
 
-            HttpWebRequest request = HttpWebRequest.Create(urlToLoad + "menu.html") as HttpWebRequest;
+            HttpWebRequest request = WebRequest.Create(urlToLoad + "menu.html") as HttpWebRequest;
             request.Method = "GET";
             /* Sart browser signature */
             request.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0";
@@ -50,48 +76,41 @@ namespace DinnerPartyRoa.services
 
                         if (!string.IsNullOrEmpty(title))
                         {
-                            byte[] imageUrl = null;
+                            byte[] image = null;
                             if (imageNode != null)
                             {
-                                imageUrl = Imageextraction(imageNode.GetAttributeValue("src", "wrong"));
+                                image = Imageextraction(imageNode.GetAttributeValue("src", "wrong"));
                             }
+                            MenuItem menuitem = new MenuItem()
+                            {
+                                Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()),
+                                Image = image
+                            };
+                             menulist.Add(menuitem);
 
-                            db.MenuItems.Add(new MenuItem() { Title = WebUtility.HtmlDecode(titleNode.InnerText.Trim()) });
 
-                            var pelement = new MenuItem() { Title = title };
-                            var imagelement = new MenuItem() { Image = null };
-
-                            db.MenuItems.Add(pelement);
-                            db.MenuItems.Add(imagelement);
-                            db.SaveChanges();
+                          
                         }
                     }
                 }
 
 
             }
-     
+            return menulist;
         }
 
-       public byte[] Imageextraction(string realtiveUrl)
-       {
-
-           using (var client = new HttpClient())
-           {
-               client.BaseAddress = new Uri(urlToLoad);
-
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("image/jpeg"));
+        private void SaveItems(List<MenuItem> items)
+        {
+            db.MenuItems.AddRange(items);
+            db.SaveChanges();
+        }
 
 
-               HttpResponseMessage response = client.GetAsync(realtiveUrl).Result;
-               if (response.IsSuccessStatusCode)
-               {
-                   return response.Content.ReadAsByteArrayAsync().Result;
-               }
 
-           }
-           return null;
-           
-       }
-    }
+        public void GetAndSave()
+        {
+            List<MenuItem> list = GetList();
+            SaveItems(list);
+        }
+   }
 }

@@ -197,8 +197,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuItemsController.cs" />
+    <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -305,9 +307,17 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Order.cshtml" />
+    <Content Include="Views\MenuItems1\Create.cshtml" />
+    <Content Include="Views\MenuItems1\Delete.cshtml" />
+    <Content Include="Views\MenuItems1\Details.cshtml" />
+    <Content Include="Views\MenuItems1\Edit.cshtml" />
+    <Content Include="Views\MenuItems1\Index.cshtml" />
+    <Content Include="Views\Update\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UpdateMenu\" />
+    <Folder Include="Views\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
