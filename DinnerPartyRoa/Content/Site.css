@@ -41,10 +41,33 @@ div #col1 {
     background-color: black;
 
 }
+div #col3 {
+    float:right;
+    height:600px; width:40%;
+    overflow:hidden; overflow-y:scroll;
+    border-style: solid;
+    color: white;
+    border-width: 1px;
+    border-color: black;
+    background-color: black;
+
+}
 
 div #col2{ float: right;
   margin: 0 1.5%;
   width: 30%;  
+}
+
+.table tbody {
+    
+    float:left;
+    height:500px; width:40%;
+    overflow:hidden; overflow-y:scroll;
+    border-style: solid;
+    color: white;
+    border-width: 1px;
+    border-color: black;
+    background-color: black;
 }
 
 .pic {

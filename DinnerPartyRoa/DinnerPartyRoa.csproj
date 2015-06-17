@@ -222,6 +222,7 @@
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderData.cs" />
+    <Compile Include="Models\ScrapperMenuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\GitHubApiService.cs" />
     <Compile Include="services\Scrapper.cs" />
@@ -316,8 +317,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UpdateMenu\" />
     <Folder Include="Views\Image\" />
+    <Folder Include="Views\UpdateMenu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

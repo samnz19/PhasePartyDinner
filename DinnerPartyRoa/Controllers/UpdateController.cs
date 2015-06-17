@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DinnerPartyRoa.Models;
 using DinnerPartyRoa.services;
 
 namespace DinnerPartyRoa.Controllers
 {
     public class UpdateController : Controller
     {
-        Scrapper scrap = new Scrapper();
-        // GET: Update
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
-            scrap.GetAndSave();
-            return View();
+            Scrapper scrap = new Scrapper();
+            ScrapperMenuViewModel vm = new ScrapperMenuViewModel();
+            vm.ArroyMenu = scrap.GetList();
+            vm.DatabaseMenu = db.MenuItems.ToList();
+            return View(vm);
         }
 
         // GET: Update/Details/5
