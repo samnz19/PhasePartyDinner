@@ -15,10 +15,33 @@
     $("#name").autocomplete({
         source: array
     });
-    
+
+    $('#submitbutton').on('click', function(e) {
+        e.preventDefault();
+        var order = new Order();
+        order.Item = $('#currentorder').val();
+        order.User = $('#currentuser').val();
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/orders/',
+            data: {
+                user: {name: order.User},
+                item: {title: order.Item}
+            },
+            datatype: 'json',
+            success: function() {
+
+            }
+        });
+
+    });
 });
 
-
+function Order() {
+    User = null;
+    Item = null;
+}
 
 var GetNames = function () {
 
@@ -43,12 +66,4 @@ var GetNames = function () {
     return array;
 }
 
-$('#submitbutton').on('click', function() {
 
-    $.ajax({
-        type: 'POST',
-        url: '/api/orders/',
-        success: function ()
-
-    });
-})

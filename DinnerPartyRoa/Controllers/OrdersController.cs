@@ -79,7 +79,9 @@ namespace DinnerPartyRoa.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Orders.Add(order);
+            Order neworder = new Order();
+
+            db.Orders.Add(neworder);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = order.Id }, order);
