@@ -75,14 +75,15 @@ namespace DinnerPartyRoa.Migrations
             MenuItem item3 = context.MenuItems.Find(3);
 
 
-            context.Orders.AddRange(
-                new List<Order>(){
-                new Order() { Item = item1, User = user1, CreatedOn = DateTime.Now},
-                new Order() { Item = item1, User = user2, CreatedOn = DateTime.Now},
-                new Order() { Item = item2, User = user2, CreatedOn = DateTime.Now},
-                new Order() { Item = item3, User = user1, CreatedOn = DateTime.Now},
-                new Order() { Item = item3, User = user3, CreatedOn = DateTime.Now}
-                }
+            context.Orders.AddOrUpdate(
+                o => o.Id,
+                //new List<Order>(){
+                new Order() { Id = 1, Item = item1, User = user1, CreatedOn = DateTime.Now},
+                new Order() { Id = 2, Item = item1, User = user2, CreatedOn = DateTime.Now},
+                new Order() { Id = 3, Item = item2, User = user2, CreatedOn = DateTime.Now},
+                new Order() { Id = 4, Item = item3, User = user1, CreatedOn = DateTime.Now},
+                new Order() { Id = 5, Item = item3, User = user3, CreatedOn = DateTime.Now}
+                //}
             );
 
         }
