@@ -1,40 +1,30 @@
-﻿@model IEnumerable<DinnerPartyRoa.Models.MenuItem>
+﻿@model DinnerPartyRoa.Models.ScrapperMenuViewModel
+<h1>Administration Page</h1>
+@*<div id ="heading">
+    <h2 style="float: left">Current</h2>
+    <h3 style="float:right">Aroy</h3>
+</div><br/><br /><br />*@
 
-@{
-    ViewBag.Title = "Index";
-}
+<div id="menu"><h2>Current Menu:</h2></div>
 
-<h2>Index</h2>
+<div id="col1">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
+    @foreach (var item in Model.DatabaseMenu)
+    {
+        <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
+    }
+</div>
 
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.Image)*@
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<div id="menu"><h2>Aroy Menu:</h2></div>
+<div id="col3">
 
-</table>
+    @foreach (var item in Model.ArroyMenu)
+    {
+        <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
+    }
+</div>
+
+
+<input type="button" value="update" id ="updatebutton">
+
