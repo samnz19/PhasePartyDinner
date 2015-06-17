@@ -13,7 +13,7 @@ namespace DinnerPartyRoa.Controllers
         // GET: Update
         public ActionResult Index()
         {
-            scrap.GetAndSave();
+            //scrap.GetAndSave();
             return View();
         }
 
