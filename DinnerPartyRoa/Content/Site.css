@@ -59,6 +59,6 @@ div #col2 {
     border-color: lightgrey;
 }
 
-    .menulist:first-of-type {
+.menulist:first-of-type {
         border-top-width: 2px;
-    }
+}
