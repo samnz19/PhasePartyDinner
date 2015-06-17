@@ -80,11 +80,9 @@ namespace DinnerPartyRoa.Controllers
             }
             Order neworder = new Order();
             var menuItem = db.MenuItems.Find(order.ItemId);
-            var gitUser = db.GitHubUsers.Where(x => x.Name == order.User).FirstOrDefault();
-
             
             neworder.Item = menuItem;
-            neworder.User = gitUser;
+            neworder.Username = order.User;
             neworder.CreatedOn = DateTime.UtcNow;
            
             db.Orders.Add(neworder);
