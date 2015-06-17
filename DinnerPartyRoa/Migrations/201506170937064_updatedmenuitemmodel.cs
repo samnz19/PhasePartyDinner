@@ -3,16 +3,16 @@ namespace DinnerPartyRoa.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreatedOn_AddedTo_Orders : DbMigration
+    public partial class updatedmenuitemmodel : DbMigration
     {
         public override void Up()
         {
-            AddColumn("aroy.Orders", "CreatedOn", c => c.DateTime(nullable: false));
+            AddColumn("aroy.MenuItems", "IsDeleted", c => c.Int(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("aroy.Orders", "CreatedOn");
+            DropColumn("aroy.MenuItems", "IsDeleted");
         }
     }
 }

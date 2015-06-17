@@ -7,13 +7,13 @@ namespace DinnerPartyRoa.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CreatedOn_AddedTo_Orders : IMigrationMetadata
+    public sealed partial class updatedmenuitemmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatedOn_AddedTo_Orders));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedmenuitemmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506162332252_CreatedOn_AddedTo_Orders"; }
+            get { return "201506170937064_updatedmenuitemmodel"; }
         }
         
         string IMigrationMetadata.Source
