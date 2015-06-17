@@ -46,5 +46,13 @@ namespace DinnerPartyRoa.Controllers
 
             return View(data.Read());
         }
+
+        [HttpPost]
+        public void SendToOrder(MenuItem item)
+        {
+            var order = item;
+            db.Orders.Add(order);
+            db.SaveChanges();
+        }
     }
 }
