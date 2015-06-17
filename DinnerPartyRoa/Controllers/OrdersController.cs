@@ -78,8 +78,8 @@ namespace DinnerPartyRoa.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             Order neworder = new Order();
+            var id = db.MenuItems.
 
             db.Orders.Add(neworder);
             db.SaveChanges();
