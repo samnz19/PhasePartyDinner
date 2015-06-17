@@ -5,9 +5,18 @@
 
     $('#col1').on('click', 'li', function() {
         $('#currentorder').empty();
-        currentSelectedItem = $(this).text();
-        $('#currentorder').append(currentSelectedItem);
-        $('#currentorder').css('color', 'pink');
+        currentSelectedItem = $.trim($(this).text());
+        console.log(currentSelectedItem);
+        //var div = $("div")[0];
+        //var orderId = $(this).data(div, "left");
+        var orderDiv = $(this).find("div")[0];
+        var orderId = $(orderDiv).data("menuitemid");
+        console.log(this);
+        console.log(orderDiv);
+        console.log(orderId);
+        $('#currentorderid').attr("value", orderId);
+        $('#currentorder').attr("value", currentSelectedItem);
+        $('#currentorder').css('color', 'blue');
     });
 
     array = GetNames();
@@ -15,44 +24,46 @@
         source: array
     });
 
-    $('#submitbutton').click(function () {
+       $('#submitbutton').on('click', function(e) {
+        e.preventDefault();
+        var order = new Order();
+        order.Item = $('#currentorder').val();
+        order.ItemId = $('#currentorderid').val();
+        //order.ItemId = orderId;
+        order.User = $('#currentuser').val();
 
-        var orderItem = $('#currentorder').text();
-        var username = $('#name').val();
-        alert(orderItem);
-        alert(username);
+        $.ajax({
+            type: 'POST',
+            url: '/api/orders/',
+            data: order,
+            //data: {
+            //    user: {name: order.User},
+            //    item: { title: order.Item }
+            //},
+            datatype: 'json',
+            success: function() {
 
-        updatingGithubtable(username, orderItem);
-    });
-    
+
+            }
+        });
+
+      });
+   
 });
 
 
-var updatingGithubtable=function(name,item)
-{    
-    var orderdata='{"Name": ' + name + ', "Title": ' + item  +'}'; 
 
-    $.ajax({
-        type: "POST",
-        url: "api/Submmit",
-        data: JSON.stringify(orderdata),
-        dataType: "json",
-        contentType: "application/json",
-        success: function () {
-            alert("success");
-            getCustomersData();
-        },
-        error: function () {
-            alert("did not work");
-        }
-    });
+
+function Order() {
+    User = null;
+    Item = null;
 }
 
 
 
 var GetNames = function () {
 
-    var array = []
+    var array = [];
     $.ajax({
         type: "GET",
         url: "https://api.github.com/orgs/enspiral-dev-academy/members",
@@ -72,3 +83,5 @@ var GetNames = function () {
 
     return array;
 }
+
+

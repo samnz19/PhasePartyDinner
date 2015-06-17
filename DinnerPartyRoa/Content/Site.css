@@ -10,7 +10,7 @@
     padding-left: 15px;
     padding-right: 15px;
     background-color: white;
-    color:black;
+    color: black;
     height: 900px;
 }
 
@@ -25,21 +25,22 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 200px;
+    text-align: left;
 }
 
 
-
 div #col1 {
-    float:left;
-    height:600px; width:40%;
-    overflow:hidden; overflow-y:scroll;
+    float: left;
+    height: 600px;
+    width: 40%;
+    overflow: hidden;
+    overflow-y: scroll;
     border-style: solid;
     color: white;
     border-width: 1px;
     border-color: black;
     background-color: black;
-
 }
 div #col3 {
     float:right;
@@ -53,9 +54,10 @@ div #col3 {
 
 }
 
-div #col2{ float: right;
-  margin: 0 1.5%;
-  width: 30%;  
+div #col2 {
+    float: right;
+    margin: 0 1.5%;
+    width: 30%;
 }
 
 .table tbody {
@@ -81,6 +83,6 @@ div #col2{ float: right;
 }
 
 .menulist:first-of-type {
-    border-top-width: 2px;
+        border-top-width: 2px;
 }
 

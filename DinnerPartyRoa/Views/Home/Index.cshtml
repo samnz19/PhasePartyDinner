@@ -35,7 +35,7 @@
                 count++;
 
                 <li class="li:@count menulist">               
-                        <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
+                    <div class="left" data-menuitemid="@item.Id">@Html.DisplayFor(modelItem => item.Title)</div>
                         @if (item.Image != null)
                         {
                             <div class="right"><img src='@Url.Action("food", "images", new {id = item.Id})' /></div>
@@ -46,18 +46,18 @@
         </ul>
     </div>
 
-
     <div id="col2">
         <h2>Personal Details:</h2>
-
-        <p>Hi, your current order is:</p>
-        <p id="currentorder"></p>
-        <p>Please enter in your GitHub Username:</p>
-
         <form>
-            <input type="text" name="username" id="name" style="color:black;">
-            <input type="submit" value="Submit" id="submitbutton">
+            <p>Hi, your current order is:</p>
+            <input id="currentorder" type="text" name="Item" value="Your Meal" readonly>
+            <input type="hidden" id="currentorderid"/>
+            <p>Please enter in your GitHub Username:</p>
+            <input id="currentuser" type="text" name="User" id="name" style="color: black;">
+
+            <button id="submitbutton" type="submit">Submit Order</button>
         </form>
+
     </div>
 </div>
 

@@ -10,7 +10,7 @@ namespace DinnerPartyRoa.Models
     public class Order
     {
         public int Id { get; set; }
-        public virtual GitHubUser User { get; set; }
+        public String Username { get; set; }
         public virtual MenuItem Item { get; set; }
         public DateTime CreatedOn { get; set; }
     }
