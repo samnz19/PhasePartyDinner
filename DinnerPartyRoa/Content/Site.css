@@ -25,9 +25,9 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 200px;
+    text-align: left;
 }
-
 
 
 div #col1 {
@@ -62,3 +62,4 @@ div #col2 {
 .menulist:first-of-type {
         border-top-width: 2px;
 }
+

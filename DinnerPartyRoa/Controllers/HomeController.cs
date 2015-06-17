@@ -26,6 +26,15 @@ namespace DinnerPartyRoa.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult Index(int id)
+        {
+            MenuItem item = db.MenuItems.Find(id);
+            db.Orders.Add(item);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -47,12 +56,5 @@ namespace DinnerPartyRoa.Controllers
             return View(data.Read());
         }
 
-        [HttpPost]
-        public void SendToOrder(MenuItem item)
-        {
-            var order = item;
-            db.Orders.Add(order);
-            db.SaveChanges();
-        }
     }
 }

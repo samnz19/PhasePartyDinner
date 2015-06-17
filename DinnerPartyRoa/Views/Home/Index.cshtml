@@ -46,20 +46,16 @@
         </ul>
     </div>
 
-
     <div id="col2">
         <h2>Personal Details:</h2>
-
-        <p>Hi, your current order is:</p>
-        <p id="currentorder"></p>
-        <p>Please enter in your GitHub Username:</p>
-
         <form>
-            <input type="text" name="username" id="name" style="color: black;">
-            <br />
-            @Html.ActionLink("Submit My Order", "SendToOrder")
-            @*<input type="submit" value="Submit My Order">*@
+            <p>Hi, your current order is:</p>
+            <input id="currentorder" type="text" name="Item" value="Your Meal" readonly>
+            <p>Please enter in your GitHub Username:</p>
+            <input type="text" name="User" id="name" style="color: black;">
+            <button type="submit">Submit Order</button>
         </form>
+
     </div>
 </div>
 

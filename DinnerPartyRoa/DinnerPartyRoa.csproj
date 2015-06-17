@@ -200,6 +200,7 @@
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuItemsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -315,8 +316,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UpdateMenu\" />
     <Folder Include="Views\Image\" />
+    <Folder Include="Views\UpdateMenu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

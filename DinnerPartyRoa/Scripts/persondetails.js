@@ -5,8 +5,9 @@
 
     $('#col1').on('click', 'li', function() {
         $('#currentorder').empty();
-        currentSelectedItem = $(this).text();
-        $('#currentorder').append(currentSelectedItem);
+        currentSelectedItem = $.trim($(this).text());
+        console.log(currentSelectedItem);
+        $('#currentorder').attr("value", currentSelectedItem);
         $('#currentorder').css('color', 'pink');
     });
 
@@ -21,7 +22,7 @@
 
 var GetNames = function () {
 
-    var array = []
+    var array = [];
     $.ajax({
         type: "GET",
         url: "https://api.github.com/orgs/enspiral-dev-academy/members",
