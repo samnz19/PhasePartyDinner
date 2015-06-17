@@ -25,6 +25,8 @@ namespace DinnerPartyRoa.Controllers
             return View(db.MenuItems.ToList());
 
         }
+        // POST: api/Home
+       
 
         public ActionResult About()
         {

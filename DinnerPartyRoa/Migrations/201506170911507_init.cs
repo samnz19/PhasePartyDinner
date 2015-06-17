@@ -31,6 +31,7 @@ namespace DinnerPartyRoa.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        CreatedOn = c.DateTime(nullable: false),
                         Item_Id = c.Int(),
                         User_Id = c.Int(),
                     })

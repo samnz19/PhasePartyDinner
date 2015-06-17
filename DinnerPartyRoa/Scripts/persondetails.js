@@ -14,8 +14,39 @@
     $("#name").autocomplete({
         source: array
     });
+
+    $('#submitbutton').click(function () {
+
+        var orderItem = $('#currentorder').text();
+        var username = $('#name').val();
+        alert(orderItem);
+        alert(username);
+
+        updatingGithubtable(username, orderItem);
+    });
     
 });
+
+
+var updatingGithubtable=function(name,item)
+{    
+    var orderdata='{"Name": ' + name + ', "Title": ' + item  +'}'; 
+
+    $.ajax({
+        type: "POST",
+        url: "api/Submmit",
+        data: JSON.stringify(orderdata),
+        dataType: "json",
+        contentType: "application/json",
+        success: function () {
+            alert("success");
+            getCustomersData();
+        },
+        error: function () {
+            alert("did not work");
+        }
+    });
+}
 
 
 

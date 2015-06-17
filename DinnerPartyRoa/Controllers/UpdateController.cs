@@ -16,9 +16,38 @@ namespace DinnerPartyRoa.Controllers
         {
             Scrapper scrap = new Scrapper();
             ScrapperMenuViewModel vm = new ScrapperMenuViewModel();
-            vm.ArroyMenu = scrap.GetList();
-            vm.DatabaseMenu = db.MenuItems.ToList();
+
+              var dbvalue= db.MenuItems.ToList().ForEach(i => i.Id = 0);
+            var current = scrap.GetList();
+
+            vm.ArroyMenu = current;
+            vm.DatabaseMenu = dbvalue;
+
+            vm.ItemsAddedByArroySite=current.Except(dbvalue).ToList();
+            vm.ItemsDeletedByArroySite = dbvalue.Except(current).ToList();
             return View(vm);
+        }
+        public ActionResult update()
+        {
+
+
+            foreach (var item in db.MenuItems)
+            {
+                item.IsDeleted = 1;
+            }
+            db.SaveChanges();
+            Scrapper scrap = new Scrapper();
+            ScrapperMenuViewModel vm = new ScrapperMenuViewModel();     
+
+
+
+            
+            vm.DatabaseMenu = scrap.GetAndSave();
+          
+            
+            return View("Index", vm);
+
+
         }
 
         // GET: Update/Details/5

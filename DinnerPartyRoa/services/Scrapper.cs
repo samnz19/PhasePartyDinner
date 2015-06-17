@@ -107,10 +107,11 @@ namespace DinnerPartyRoa.services
 
 
 
-        public void GetAndSave()
+        public List<MenuItem> GetAndSave()
         {
             List<MenuItem> list = GetList();
             SaveItems(list);
+            return list;
         }
    }
 }
