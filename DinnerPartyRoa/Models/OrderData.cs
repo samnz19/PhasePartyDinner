@@ -9,9 +9,11 @@ namespace DinnerPartyRoa.Models
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
+        //Re-Arrange method to render ViewModel for view
         public List<Order> Read()
         {
             return db.Orders.Select(s => s).ToList(); 
         }
+        
     }
 }
