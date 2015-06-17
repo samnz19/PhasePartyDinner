@@ -7,6 +7,14 @@
         $('#currentorder').empty();
         currentSelectedItem = $.trim($(this).text());
         console.log(currentSelectedItem);
+        //var div = $("div")[0];
+        //var orderId = $(this).data(div, "left");
+        var orderDiv = $(this).find("div")[0];
+        var orderId = $(orderDiv).data("menuitemid");
+        console.log(this);
+        console.log(orderDiv);
+        console.log(orderId);
+        $('#currentorderid').attr("value", orderId);
         $('#currentorder').attr("value", currentSelectedItem);
         $('#currentorder').css('color', 'blue');
     });
@@ -20,15 +28,18 @@
         e.preventDefault();
         var order = new Order();
         order.Item = $('#currentorder').val();
+        order.ItemId = $('#currentorderid').val();
+        //order.ItemId = orderId;
         order.User = $('#currentuser').val();
 
         $.ajax({
             type: 'POST',
             url: '/api/orders/',
-            data: {
-                user: {name: order.User},
-                item: {title: order.Item}
-            },
+            data: order,
+            //data: {
+            //    user: {name: order.User},
+            //    item: { title: order.Item }
+            //},
             datatype: 'json',
             success: function() {
 

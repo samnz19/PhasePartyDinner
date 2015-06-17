@@ -72,19 +72,25 @@ namespace DinnerPartyRoa.Controllers
 
         // POST: api/Orders
         [ResponseType(typeof(Order))]
-        public IHttpActionResult PostOrder(Order order)
+        public IHttpActionResult PostOrder(OrderViewModel order)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             Order neworder = new Order();
-            var id = db.MenuItems.
+            var menuItem = db.MenuItems.Find(order.ItemId);
+            var gitUser = db.GitHubUsers.Where(x => x.Name == order.User).FirstOrDefault();
 
+            
+            neworder.Item = menuItem;
+            neworder.User = gitUser;
+            neworder.CreatedOn = DateTime.UtcNow;
+           
             db.Orders.Add(neworder);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = order.Id }, order);
+            return CreatedAtRoute("DefaultApi", new { id = order }, order);
         }
 
         // DELETE: api/Orders/5
