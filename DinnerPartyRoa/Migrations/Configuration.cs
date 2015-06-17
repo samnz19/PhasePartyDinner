@@ -32,15 +32,17 @@ namespace DinnerPartyRoa.Migrations
             //);
             //var image = new ImageModel();
 
-            context.MenuItems.AddOrUpdate(
-                x => x.Title,
-                new MenuItem() {Title = "Pad Thai"},
-                new MenuItem() {Title = "Ginger Chicken"},
-                new MenuItem() {Title = "Plum Duck"},
-                new MenuItem() {Title = "Steamed Chiken Rice"},
-                new MenuItem() {Title = "Green Curry"},
-                new MenuItem() {Title = "Chili Chicken"},
-                new MenuItem() {Title = "Wonton Soup with BBQ Pork"});
+
+            //context.MenuItems.AddOrUpdate(
+            //    x => x.Title,
+            //    new MenuItem(){ Title = "Pad Thai" },
+            //    new MenuItem() { Title = "Ginger Chicken"},
+            //    new MenuItem() { Title = "Plum Duck"},
+            //    new MenuItem() { Title = "Steamed Chiken Rice" },
+            //    new MenuItem() { Title = "Green Curry"},
+            //    new MenuItem() { Title = "Chili Chicken"},
+            //    new MenuItem() { Title = "Wonton Soup with BBQ Pork"}
+
 
 
             //    //new MenuItem() { Title = "Pad Thai", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/20111103padthai.jpg")},
@@ -73,6 +75,7 @@ namespace DinnerPartyRoa.Migrations
             //MenuItem item1 = context.MenuItems.Find(1);
             //MenuItem item2 = context.MenuItems.Find(2);
             //MenuItem item3 = context.MenuItems.Find(3);
+
 
 
             //context.Orders.AddRange(

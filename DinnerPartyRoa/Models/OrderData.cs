@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
+using Microsoft.Owin.Security.Provider;
 
 namespace DinnerPartyRoa.Models
 {
@@ -11,7 +14,20 @@ namespace DinnerPartyRoa.Models
 
         public List<Order> Read()
         {
-            return db.Orders.Select(s => s).ToList(); 
+            Order newestOrder = db.Orders.OrderByDescending(n => n.CreatedOn).FirstOrDefault();
+            DateTime weeksOrder = newestOrder.CreatedOn.Date;
+            List<Order> orders = db.Orders.Where(s => DbFunctions.TruncateTime(s.CreatedOn) >= weeksOrder).ToList();
+            return orders;
         }
+
+        public IEnumerable<GroupedOrderViewModel> ReadByQuantity()
+        {   
+            //List of Orders from Read method above.
+            List<Order> orders = Read();
+
+            IEnumerable<GroupedOrderViewModel> orderSummary = orders.GroupBy(m => m.Item.Title).Select(s => new GroupedOrderViewModel(){ItemName = s.Key, Quantity = s.Count()});
+      
+            return orderSummary;
+        }   
     }
 }

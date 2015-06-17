@@ -24,7 +24,7 @@
         source: array
     });
 
-    $('#submitbutton').on('click', function(e) {
+       $('#submitbutton').on('click', function(e) {
         e.preventDefault();
         var order = new Order();
         order.Item = $('#currentorder').val();
@@ -43,16 +43,22 @@
             datatype: 'json',
             success: function() {
 
+
             }
         });
 
-    });
+      });
+   
 });
+
+
 
 function Order() {
     User = null;
     Item = null;
 }
+
+
 
 var GetNames = function () {
 

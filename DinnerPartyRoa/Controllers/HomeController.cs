@@ -25,6 +25,8 @@ namespace DinnerPartyRoa.Controllers
             return View(db.MenuItems.ToList());
 
         }
+        // POST: api/Home
+       
 
         //[HttpPost]
         //public ActionResult Index(int id)
@@ -53,7 +55,7 @@ namespace DinnerPartyRoa.Controllers
         {
             OrderData data = new OrderData();
 
-            return View(data.Read());
+            return View(data.ReadByQuantity());
         }
 
     }
