@@ -21,7 +21,7 @@
                     <div id="menu"><h2>Aroy Menu:</h2></div>
                             <div id="col3">
                                         
-                                            @if (Model.ItemsAddedByArroySite.Count == 0 && Model.ItemsDeletedByArroySite.Count==0)
+                                            @if (Model.ItemsAddedByArroySite==null && Model.ItemsDeletedByArroySite==null)
                                             {
                                                 <div>
                                                 <h2>Updated</h2>
@@ -31,7 +31,7 @@
                                             {
                                                 <div>
                                                 <h3> Items Added newly to Arroy Site:</h3>
-                                                @if (Model.ItemsAddedByArroySite.Count>0)
+                                                @if (Model.ItemsAddedByArroySite!=null && Model.ItemsAddedByArroySite.Any())
                                                 {
                                                     foreach (var item in Model.ItemsAddedByArroySite)
                                                     {
@@ -48,7 +48,7 @@
 
                                                 <div>
                                                     <h3>Items deleted from ArroySet , but contained in the Database:</h3>
-                                                    @if (Model.ItemsDeletedByArroySite.Count>0)
+                                                    @if (Model.ItemsDeletedByArroySite!=null && Model.ItemsDeletedByArroySite.Any())
                                                     {
                                                         
                                                         foreach (var item in Model.ItemsDeletedByArroySite)
@@ -58,12 +58,12 @@
                                                     }
                                                     else
                                                     {
-                                                        <p>Database is upto date</p>
+                                                        <p>Database does not have items deleted from arroy site...</p>
                                                     }
                                                 </div>
                                             }
                                 </div>
-    @using (Html.BeginForm("update", "Update"))
+    @using (Html.BeginForm("Update", "Update"))
     {
         <button type="submit">Update</button>
     }

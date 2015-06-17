@@ -17,5 +17,21 @@ namespace DinnerPartyRoa.Models
         {
             IsDeleted = 0;
         }
+
+        public override bool Equals(object obj)
+        {
+            MenuItem otherItem = obj as MenuItem;
+            if (otherItem == null)
+            {
+                return false;
+            }
+
+            return this.Title == otherItem.Title;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Title.GetHashCode();
+        }
     }
 }

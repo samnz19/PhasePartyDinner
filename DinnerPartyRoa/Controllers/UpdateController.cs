@@ -17,17 +17,36 @@ namespace DinnerPartyRoa.Controllers
             Scrapper scrap = new Scrapper();
             ScrapperMenuViewModel vm = new ScrapperMenuViewModel();
 
-              var dbvalue= db.MenuItems.ToList().ForEach(i => i.Id = 0);
+            var dbvalues = db.MenuItems.Where(m => m.IsDeleted == 0).ToList();
+
             var current = scrap.GetList();
+            // List<string> dbTitles=new List<string>();
+            // List<string> arroytitles=new List<string>();
+            // foreach (var title in dbvalues)
+            // {
+            //     dbTitles.Add(title.Title);
+            // }
+            // foreach (var title in current)
+            // {
+            //     arroytitles.Add(title.Title);
+            // }
+            //// dbvalues.ForEach(i => i.Id = 0);
+
 
             vm.ArroyMenu = current;
-            vm.DatabaseMenu = dbvalue;
+            vm.DatabaseMenu = dbvalues;
 
-            vm.ItemsAddedByArroySite=current.Except(dbvalue).ToList();
-            vm.ItemsDeletedByArroySite = dbvalue.Except(current).ToList();
+            vm.ItemsAddedByArroySite = current.Except(dbvalues).ToList();
+            vm.ItemsDeletedByArroySite = dbvalues.Except(current).ToList();
+            //foreach (var item in diff)
+            //{
+            //    vm.ItemsAddedByArroySite = current.Where(x => x.Title == item).ToList();
+            //}
+
+            // vm.ItemsDeletedByArroySite =
             return View(vm);
         }
-        public ActionResult update()
+        public ActionResult Update()
         {
 
 
@@ -37,15 +56,17 @@ namespace DinnerPartyRoa.Controllers
             }
             db.SaveChanges();
             Scrapper scrap = new Scrapper();
-            ScrapperMenuViewModel vm = new ScrapperMenuViewModel();     
+            scrap.GetAndSave();
+
+            //  ScrapperMenuViewModel vm = new ScrapperMenuViewModel();
 
 
+            return RedirectToAction("Index");
 
-            
-            vm.DatabaseMenu = scrap.GetAndSave();
-          
-            
-            return View("Index", vm);
+            //vm.DatabaseMenu = 
+
+
+            //return View("Index", vm);
 
 
         }
