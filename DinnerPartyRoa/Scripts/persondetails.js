@@ -16,7 +16,7 @@
     });
 
     array = GetNames();
-    $("#name").autocomplete({
+    $("#currentuser").autocomplete({
         source: array
     });
 
