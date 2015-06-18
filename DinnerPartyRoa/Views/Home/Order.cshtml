@@ -1,7 +1,9 @@
-﻿@using DinnerPartyRoa.Models
-@model IEnumerable<GroupedOrderViewModel>
+@using DinnerPartyRoa.Models
+@model YetAnotherViewModel
 
 <div id="OrderTable">
+
+    <div>
     <br/>
     <table class="pure-table pure-table-bordered">
         <thead>
@@ -11,8 +13,13 @@
         </tr>
         </thead>
 
+    <table id="Orders">
+        @foreach (var order in Model)
+    <table id="Orders">
+        @foreach (var order in Model.data)
         <tbody>
             @foreach (var order in Model)
+
             {
                 <tr>
                     <td>@order.Quantity</td>
@@ -21,4 +28,24 @@
             }
         </tbody>
     </table>
+        </div>
+
+    <hr/>
+    <div style="float:right">
+        
+        @foreach (var keyvalue in Model.dictionaryOfUserOrders)
+        {
+            
+            <h4>@keyvalue.Key</h4>
+            foreach (var username in keyvalue.Value)
+            {
+                <p> @username   </p>
+            }
+
+
+
+
+        }
+
+        </div>
 </div>

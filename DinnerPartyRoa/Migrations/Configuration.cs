@@ -17,42 +17,34 @@ namespace DinnerPartyRoa.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(DinnerPartyRoa.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            //Uncomment the line below to use the sweed method.
+            //seeder(context);
+        }
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //context.MenuItems.AddOrUpdate(
-            //  p => p.Title,
-            //  new MenuItem[] { Title = "Andrew Peters" },
-            //  new MenuItem() { FullName = "Brice Lambson" },
-            //  new MenuItem() { FullName = "Rowan Miller" }
-            //);
-            //var image = new ImageModel();
-
-
-            //context.MenuItems.AddOrUpdate(
-            //    x => x.Title,
-            //    new MenuItem(){ Title = "Pad Thai" },
-            //    new MenuItem() { Title = "Ginger Chicken"},
-            //    new MenuItem() { Title = "Plum Duck"},
-            //    new MenuItem() { Title = "Steamed Chiken Rice" },
-            //    new MenuItem() { Title = "Green Curry"},
-            //    new MenuItem() { Title = "Chili Chicken"},
-            //    new MenuItem() { Title = "Wonton Soup with BBQ Pork"}
+        public void seeder(ApplicationDbContext context)
+        {
+            context.MenuItems.AddOrUpdate(
+                x => x.Title,
+                new MenuItem() { Title = "Pad Thai" },
+                new MenuItem() { Title = "Ginger Chicken" },
+                new MenuItem() { Title = "Plum Duck" },
+                new MenuItem() { Title = "Steamed Chiken Rice" },
+                new MenuItem() { Title = "Green Curry" },
+                new MenuItem() { Title = "Chili Chicken" },
+                new MenuItem() { Title = "Wonton Soup with BBQ Pork" }
 
 
 
-            //    //new MenuItem() { Title = "Pad Thai", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/20111103padthai.jpg")},
-            //    //new MenuItem() { Title = "Ginger Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GingerChicken.jpg") },
-            //    //new MenuItem() { Title = "Plum Duck", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/PlumDuck.jpg") },
-            //    //new MenuItem() { Title = "Steamed Chiken Rice", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/SteamedChicken.jpg") },
-            //    //new MenuItem() { Title = "Green Curry", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GreenCurry.jpg") },
-            //    //new MenuItem() { Title = "Chili Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/ChiliChicken.jpg") },
-            //    //new MenuItem() { Title = "Wonton Soup with BBQ Pork", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/Wonton.jpg")}
-            //    );
+                //new MenuItem() { Title = "Pad Thai", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/20111103padthai.jpg")},
+                //new MenuItem() { Title = "Ginger Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GingerChicken.jpg") },
+                //new MenuItem() { Title = "Plum Duck", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/PlumDuck.jpg") },
+                //new MenuItem() { Title = "Steamed Chiken Rice", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/SteamedChicken.jpg") },
+                //new MenuItem() { Title = "Green Curry", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GreenCurry.jpg") },
+                //new MenuItem() { Title = "Chili Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/ChiliChicken.jpg") },
+                //new MenuItem() { Title = "Wonton Soup with BBQ Pork", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/Wonton.jpg")}
+                );
 
             //context.GitHubUsers.AddOrUpdate(
             //    u => u.Name,
@@ -80,14 +72,13 @@ namespace DinnerPartyRoa.Migrations
 
             //context.Orders.AddRange(
             //    new List<Order>(){
-            //    new Order() { Item = item1, User = user1, CreatedOn = DateTime.Now},
-            //    new Order() { Item = item1, User = user2, CreatedOn = DateTime.Now},
-            //    new Order() { Item = item2, User = user2, CreatedOn = DateTime.Now},
-            //    new Order() { Item = item3, User = user1, CreatedOn = DateTime.Now},
-            //    new Order() { Item = item3, User = user3, CreatedOn = DateTime.Now}
+            //    new Order() { Item = item1},
+            //    new Order() { Item = item1},
+            //    new Order() { Item = item2},
+            //    new Order() { Item = item3},
+            //    new Order() { Item = item3}
             //    }
             //);
-
         }
     }
 }
