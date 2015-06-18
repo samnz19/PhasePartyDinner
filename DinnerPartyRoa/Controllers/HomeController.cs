@@ -42,9 +42,32 @@ namespace DinnerPartyRoa.Controllers
 
         public ActionResult Order()
         {
+            YetAnotherViewModel vm = new YetAnotherViewModel();
             OrderData data = new OrderData();
+            var dborders = db.Orders.ToList();
 
-            return View(data.ReadByQuantity());
+            foreach (var stuff in dborders)
+            {
+                var FoodName = stuff.Item.Title;
+                var UserList = dborders.Where(x => x.Item.Title == FoodName).Select(u => u.Username).ToList();
+
+                if (!vm.dictionaryOfUserOrders.ContainsKey(FoodName))
+                {
+                    vm.dictionaryOfUserOrders.Add(FoodName, UserList);
+                }
+            }
+
+            //foreach(var foodName in vm.dictionaryOfUserOrders.Keys)
+            //{
+            //    var UserList = db.Orders.Where(x => x.Item.Title == foodName).Select(u => u.Username).ToList();
+            //    vm.dictionaryOfUserOrders[foodName] = UserList;
+            //}
+
+
+
+            vm.data = data.ReadByQuantity();
+
+            return View(vm);
         }
 
     }

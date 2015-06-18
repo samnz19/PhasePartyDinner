@@ -8,21 +8,13 @@ namespace DinnerPartyRoa.Migrations
         public override void Up()
         {
             CreateTable(
-                "aroy.GitHubUsers",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "aroy.MenuItems",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         Image = c.Binary(),
+                        IsDeleted = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -31,15 +23,13 @@ namespace DinnerPartyRoa.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Username = c.String(),
                         CreatedOn = c.DateTime(nullable: false),
                         Item_Id = c.Int(),
-                        User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("aroy.MenuItems", t => t.Item_Id)
-                .ForeignKey("aroy.GitHubUsers", t => t.User_Id)
-                .Index(t => t.Item_Id)
-                .Index(t => t.User_Id);
+                .Index(t => t.Item_Id);
             
             CreateTable(
                 "aroy.AspNetRoles",
@@ -117,7 +107,6 @@ namespace DinnerPartyRoa.Migrations
             DropForeignKey("aroy.AspNetUserLogins", "UserId", "aroy.AspNetUsers");
             DropForeignKey("aroy.AspNetUserClaims", "UserId", "aroy.AspNetUsers");
             DropForeignKey("aroy.AspNetUserRoles", "RoleId", "aroy.AspNetRoles");
-            DropForeignKey("aroy.Orders", "User_Id", "aroy.GitHubUsers");
             DropForeignKey("aroy.Orders", "Item_Id", "aroy.MenuItems");
             DropIndex("aroy.AspNetUserLogins", new[] { "UserId" });
             DropIndex("aroy.AspNetUserClaims", new[] { "UserId" });
@@ -125,7 +114,6 @@ namespace DinnerPartyRoa.Migrations
             DropIndex("aroy.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("aroy.AspNetUserRoles", new[] { "UserId" });
             DropIndex("aroy.AspNetRoles", "RoleNameIndex");
-            DropIndex("aroy.Orders", new[] { "User_Id" });
             DropIndex("aroy.Orders", new[] { "Item_Id" });
             DropTable("aroy.AspNetUserLogins");
             DropTable("aroy.AspNetUserClaims");
@@ -134,7 +122,6 @@ namespace DinnerPartyRoa.Migrations
             DropTable("aroy.AspNetRoles");
             DropTable("aroy.Orders");
             DropTable("aroy.MenuItems");
-            DropTable("aroy.GitHubUsers");
         }
     }
 }

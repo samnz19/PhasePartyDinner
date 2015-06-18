@@ -12,7 +12,7 @@ namespace DinnerPartyRoa.Models
     public class OrderData
     {
         ApplicationDbContext db = new ApplicationDbContext();
-
+        
         public List<Order> Read()
         {
             Order newestOrder = db.Orders.OrderByDescending(n => n.CreatedOn).FirstOrDefault();
@@ -26,8 +26,11 @@ namespace DinnerPartyRoa.Models
             //List of Orders from Read method above.
             List<Order> orders = Read();
 
-            IEnumerable<GroupedOrderViewModel> orderSummary = orders.GroupBy(m => m.Item.Title).Select(s => new GroupedOrderViewModel(){ItemName = s.Key, Quantity = s.Count()});
-      
+            IEnumerable<GroupedOrderViewModel> orderSummary = null;
+            if (orders != null)
+            {
+                orderSummary = orders.Where(x=>x.Item!=null).GroupBy(m => m.Item.Title).Select(s => new GroupedOrderViewModel() { ItemName = s.Key, Quantity = s.Count() });
+            }
             //GitHubApiService gitHubApi = new GitHubApiService();
             //List<GitHubUser> users =  gitHubApi.GetGitHubUsers();
 
