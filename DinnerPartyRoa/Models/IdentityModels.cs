@@ -36,7 +36,7 @@ namespace DinnerPartyRoa.Models
         public DbSet<MenuItem> MenuItems { get; set; }
         //public DbSet<PersonPlacingOrder> PersonPlacingOrders { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<GitHubUser> GitHubUsers { get; set; } 
+        //public DbSet<GitHubUser> GitHubUsers { get; set; } 
 
 
         public static ApplicationDbContext Create()

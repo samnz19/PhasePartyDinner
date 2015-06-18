@@ -12,8 +12,12 @@ namespace DinnerPartyRoa.Services
 {
     public class GitHubApiService
     {
-        public List<GitHubUser> Users { get; set; }
+        private List<GitHubUser> Users { get; set; }
 
+        /// <summary>
+        /// Method is used to get a list of users from github for the dev academy organistation
+        /// </summary>
+        /// <returns></returns>
         public List<GitHubUser> GetGitHubUsers()
         {
             TalkToGithub();
@@ -35,9 +39,7 @@ namespace DinnerPartyRoa.Services
                 {
                    //add to list
                     string json = response.Content.ReadAsStringAsync().Result;
-                    AddToList(json);
-
-
+                    Users = AddToList(json);
                 }
             }
         }
