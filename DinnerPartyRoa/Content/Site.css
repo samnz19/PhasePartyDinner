@@ -18,7 +18,7 @@
     background-color: #ffffff;
     background-color: rgba(255,255,255, 0.3);
     color: black;
-    height: 900px;
+    min-height: 300px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -37,10 +37,8 @@ textarea {
 }
 
 
-div #col1 {
-    float: left;
-    height: 600px;
-    width: 40%;
+#menu {
+    height: 650px;
     overflow: hidden;
     overflow-y: scroll;
     border-style: solid;
@@ -48,10 +46,22 @@ div #col1 {
     border-width: 1px;
     border-color: black;
     background-color: black;
-    /*text-decoration: none;
-    list-style-type: none;*/
+    margin: 40px 0 50px 30px ;
 }
-div #col3 {
+
+ #menu img {
+     float: right;
+ }
+
+ #menu p {
+     padding-top: 20px;
+     padding-left: 20px;
+     font-size: 16px;
+ }
+
+
+
+#col3 {
     float:right;
     height:600px; width:40%;
     overflow:hidden; overflow-y:scroll;
@@ -63,10 +73,15 @@ div #col3 {
 
 }
 
-div #col2 {
-    float: right;
-    margin: 0 1.5%;
-    width: 30%;
+#form {
+    margin: 0 auto;
+    width: 200px;
+    display: block;
+}
+
+#form p {
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 .table tbody {
@@ -101,13 +116,11 @@ div #col2 {
 
 ul {
     list-style-type: none;
-    padding-left: 0;
-    
+    padding-left: 0;  
 }
 
 ul li {
-    position: relative;
-    
+    position: relative; 
 }
 
 .pure-table-bordered {
@@ -118,8 +131,38 @@ ul li {
 #OrderTable {
     margin: 0 auto;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 #OrderTable td {
     background-color: whitesmoke;
+}
+
+#column-left {
+    padding-right: 35px;
+}
+
+#column-left h2 {
+    text-align: center;
+    color: whitesmoke;
+    font-family: Lobster;
+}
+
+#column-right {
+    padding-left: 35px;
+}
+
+#column-right h2 {
+    text-align: center;
+    color: whitesmoke;
+    font-family: Lobster;
+}
+
+#column-right p {
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+#order {
+    margin-top: 50px;
 }

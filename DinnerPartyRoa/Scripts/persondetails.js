@@ -3,11 +3,11 @@
     var array = [];
     var currentSelectedItem = "";
 
-    $('#col1').on('click', 'li', function () {
+    $('#menu').on('click', 'li', function () {
         $('#currentorder').empty();
         currentSelectedItem = $.trim($(this).text());
 
-        var orderDiv = $(this).find("div")[0];
+        var orderDiv = $(this).find("#data")[0];
         var orderId = $(orderDiv).data("menuitemid");
 
         $('#currentorderid').attr("value", orderId);
@@ -35,7 +35,7 @@
 
             datatype: 'json',
             success: function () {
-
+                alert("Order Placed!");
             }
         });
 
