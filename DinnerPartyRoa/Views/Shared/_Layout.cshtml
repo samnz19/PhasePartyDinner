@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Phase Dinner</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", required: false)
+    <link href='http://fonts.googleapis.com/css?family=Lobster|Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
@@ -22,15 +23,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Dinner", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                   
-                    <li>@Html.ActionLink("Report", "About", "Home")</li>
-                    
-                  
+
                     <li>@Html.ActionLink("Order", "Order", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -39,16 +36,15 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
+    
     </div>
 
    
    
     <script src="~/Scripts/persondetails.js" type="text/javascript"></script>
 
-
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Roa Team</p>
+    </footer>
 </body>
 </html>

@@ -3,6 +3,7 @@
     padding-bottom: 20px;
     background-color: #e04a3b;
     min-height: 800px;
+    font-family: Roboto;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -84,5 +85,9 @@ div #col2 {
 
 .menulist:first-of-type {
         border-top-width: 2px;
+}
+
+.navbar {
+    font-family: Lobster;
 }
 
