@@ -22,6 +22,7 @@
 
     $('#submitbutton').on('click', function (e) {
         e.preventDefault();
+        alert("You have placed an Order!");
         var order = new Order();
         order.Item = $('#currentorder').val();
         order.ItemId = $('#currentorderid').val();

@@ -25,17 +25,6 @@ namespace DinnerPartyRoa.Controllers
             return View(db.MenuItems.ToList());
 
         }
-        // POST: api/Home
-       
-
-        //[HttpPost]
-        //public ActionResult Index(int id)
-        //{
-        //    MenuItem item = db.MenuItems.Find(id);
-        //    db.Orders.Add(item);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
 
         public ActionResult About()
         {
