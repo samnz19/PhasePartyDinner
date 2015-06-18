@@ -46,39 +46,39 @@ namespace DinnerPartyRoa.Migrations
                 //new MenuItem() { Title = "Wonton Soup with BBQ Pork", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/Wonton.jpg")}
                 );
 
-            context.GitHubUsers.AddOrUpdate(
-                u => u.Name,
-                new GitHubUser() { Name = Faker.NameFaker.Name() },
-                new GitHubUser() { Name = Faker.NameFaker.Name() },
-                new GitHubUser() { Name = Faker.NameFaker.Name() },
-                new GitHubUser() { Name = Faker.NameFaker.Name() },
-                new GitHubUser() { Name = Faker.NameFaker.Name() },
-                new GitHubUser() { Name = Faker.NameFaker.Name() },
-                new GitHubUser() { Name = Faker.NameFaker.Name() },
-                new GitHubUser() { Name = Faker.NameFaker.Name() }
-                );
-            context.SaveChanges();
+            //context.GitHubUsers.AddOrUpdate(
+            //    u => u.Name,
+            //    new GitHubUser() { Name = Faker.NameFaker.Name() },
+            //    new GitHubUser() { Name = Faker.NameFaker.Name() },
+            //    new GitHubUser() { Name = Faker.NameFaker.Name() },
+            //    new GitHubUser() { Name = Faker.NameFaker.Name() },
+            //    new GitHubUser() { Name = Faker.NameFaker.Name() },
+            //    new GitHubUser() { Name = Faker.NameFaker.Name() },
+            //    new GitHubUser() { Name = Faker.NameFaker.Name() },
+            //    new GitHubUser() { Name = Faker.NameFaker.Name() }
+            //    );
+            //context.SaveChanges();
 
 
-            GitHubUser user1 = context.GitHubUsers.Find(1);
-            GitHubUser user2 = context.GitHubUsers.Find(2);
-            GitHubUser user3 = context.GitHubUsers.Find(3);
+            //GitHubUser user1 = context.GitHubUsers.Find(1);
+            //GitHubUser user2 = context.GitHubUsers.Find(2);
+            //GitHubUser user3 = context.GitHubUsers.Find(3);
 
-            MenuItem item1 = context.MenuItems.Find(1);
-            MenuItem item2 = context.MenuItems.Find(2);
-            MenuItem item3 = context.MenuItems.Find(3);
+            //MenuItem item1 = context.MenuItems.Find(1);
+            //MenuItem item2 = context.MenuItems.Find(2);
+            //MenuItem item3 = context.MenuItems.Find(3);
 
 
 
-            context.Orders.AddRange(
-                new List<Order>(){
-                new Order() { Item = item1},
-                new Order() { Item = item1},
-                new Order() { Item = item2},
-                new Order() { Item = item3},
-                new Order() { Item = item3}
-                }
-            );
+            //context.Orders.AddRange(
+            //    new List<Order>(){
+            //    new Order() { Item = item1},
+            //    new Order() { Item = item1},
+            //    new Order() { Item = item2},
+            //    new Order() { Item = item3},
+            //    new Order() { Item = item3}
+            //    }
+            //);
         }
     }
 }
