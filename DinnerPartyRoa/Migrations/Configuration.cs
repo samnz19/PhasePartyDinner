@@ -25,15 +25,15 @@ namespace DinnerPartyRoa.Migrations
 
         public void seeder(ApplicationDbContext context)
         {
-            context.MenuItems.AddOrUpdate(
-                x => x.Title,
-                new MenuItem() { Title = "Pad Thai" },
-                new MenuItem() { Title = "Ginger Chicken" },
-                new MenuItem() { Title = "Plum Duck" },
-                new MenuItem() { Title = "Steamed Chiken Rice" },
-                new MenuItem() { Title = "Green Curry" },
-                new MenuItem() { Title = "Chili Chicken" },
-                new MenuItem() { Title = "Wonton Soup with BBQ Pork" }
+            //context.MenuItems.AddOrUpdate(
+            //    x => x.Title,
+            //    new MenuItem() { Title = "Pad Thai" },
+            //    new MenuItem() { Title = "Ginger Chicken" },
+            //    new MenuItem() { Title = "Plum Duck" },
+            //    new MenuItem() { Title = "Steamed Chiken Rice" },
+            //    new MenuItem() { Title = "Green Curry" },
+            //    new MenuItem() { Title = "Chili Chicken" },
+            //    new MenuItem() { Title = "Wonton Soup with BBQ Pork" }
 
 
 
@@ -44,7 +44,7 @@ namespace DinnerPartyRoa.Migrations
                 //new MenuItem() { Title = "Green Curry", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/GreenCurry.jpg") },
                 //new MenuItem() { Title = "Chili Chicken", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/ChiliChicken.jpg") },
                 //new MenuItem() { Title = "Wonton Soup with BBQ Pork", Image = image.ImageToByteArray("C:/Users/user/Documents/GitHub/PhasePartyDinner/DinnerPartyRoa/Content/Img/Wonton.jpg")}
-                );
+                //);
 
             //context.GitHubUsers.AddOrUpdate(
             //    u => u.Name,

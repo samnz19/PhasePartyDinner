@@ -13,7 +13,7 @@ namespace DinnerPartyRoa.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201506181216325_init"; }
+            get { return "201506182203502_init"; }
         }
         
         string IMigrationMetadata.Source

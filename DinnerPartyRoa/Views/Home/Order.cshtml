@@ -4,48 +4,40 @@
 <div id="OrderTable">
 
     <div>
-    <br/>
-    <table class="pure-table pure-table-bordered">
-        <thead>
-        <tr>
-            <th>Quantity</th>
-            <th>Item</th>
-        </tr>
-        </thead>
-
-    <table id="Orders">
-        @foreach (var order in Model)
-    <table id="Orders">
-        @foreach (var order in Model.data)
-        <tbody>
-            @foreach (var order in Model)
-
-            {
+        <br />
+        <table class="pure-table pure-table-bordered">
+            <thead>
                 <tr>
-                    <td>@order.Quantity</td>
-                    <td>@order.ItemName</td>
+                    <th>Quantity</th>
+                    <th>Item</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-        </div>
+            </thead>
 
-    <hr/>
+            <tbody>
+                @foreach (var order in Model.data)
+                {
+                    <tr>
+                        <td>@order.Quantity</td>
+                        <td>@order.ItemName</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+    <hr />
     <div style="float:right">
-        
+
         @foreach (var keyvalue in Model.dictionaryOfUserOrders)
         {
-            
+
             <h4>@keyvalue.Key</h4>
             foreach (var username in keyvalue.Value)
             {
                 <p> @username   </p>
             }
-
-
-
-
         }
 
-        </div>
+    </div>
 </div>
