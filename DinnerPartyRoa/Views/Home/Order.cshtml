@@ -3,13 +3,22 @@
 
 <div id="OrderTable">
 
-    <table id="Orders">
-        @foreach (var order in Model)
-        {
-            <tr>
-                <td>@order.Quantity</td>
-                <td>@order.ItemName</td>
-            </tr>
-        }
+    <table class="pure-table pure-table-bordered">
+        <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Item</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Quantity</td>
+                    <td>@order.ItemName</td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
