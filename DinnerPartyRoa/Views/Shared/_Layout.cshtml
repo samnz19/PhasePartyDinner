@@ -29,7 +29,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
-                    <li>@Html.ActionLink("Order", "Order", "Home")</li>
+                    <li>@Html.ActionLink("Summary", "Order", "Home")</li>
+                    <li>@Html.ActionLink("Details", "Index", "OrderDetails")</li>
+                    <li>@Html.ActionLink("Update", "Index", "Update")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
