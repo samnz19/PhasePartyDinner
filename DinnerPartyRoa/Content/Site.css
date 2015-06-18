@@ -1,18 +1,24 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #e04a3b;
     min-height: 800px;
     font-family: Roboto;
+    /*Nice gradient background*/
+    background: -webkit-linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* W3C */   
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: white;
+    background-color: #ffffff;
+    background-color: rgba(255,255,255, 0.3);
     color: black;
-    height: 900px;
+    min-height: 300px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -31,10 +37,8 @@ textarea {
 }
 
 
-div #col1 {
-    float: left;
-    height: 600px;
-    width: 40%;
+#menu {
+    height: 650px;
     overflow: hidden;
     overflow-y: scroll;
     border-style: solid;
@@ -42,8 +46,22 @@ div #col1 {
     border-width: 1px;
     border-color: black;
     background-color: black;
+    margin: 40px 0 50px 30px ;
 }
-div #col3 {
+
+ #menu img {
+     float: right;
+ }
+
+ #menu p {
+     padding-top: 20px;
+     padding-left: 20px;
+     font-size: 16px;
+ }
+
+
+
+#col3 {
     float:right;
     height:600px; width:40%;
     overflow:hidden; overflow-y:scroll;
@@ -55,10 +73,15 @@ div #col3 {
 
 }
 
-div #col2 {
-    float: right;
-    margin: 0 1.5%;
-    width: 30%;
+#form {
+    margin: 0 auto;
+    width: 200px;
+    display: block;
+}
+
+#form p {
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 .table tbody {
@@ -91,3 +114,55 @@ div #col2 {
     font-family: Lobster;
 }
 
+ul {
+    list-style-type: none;
+    padding-left: 0;  
+}
+
+ul li {
+    position: relative; 
+}
+
+.pure-table-bordered {
+    margin: 0 auto;
+    width: 50%;
+}
+
+#OrderTable {
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#OrderTable td {
+    background-color: whitesmoke;
+}
+
+#column-left {
+    padding-right: 35px;
+}
+
+#column-left h2 {
+    text-align: center;
+    color: whitesmoke;
+    font-family: Lobster;
+}
+
+#column-right {
+    padding-left: 35px;
+}
+
+#column-right h2 {
+    text-align: center;
+    color: whitesmoke;
+    font-family: Lobster;
+}
+
+#column-right p {
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+#order {
+    margin-top: 50px;
+}

@@ -7,62 +7,76 @@
 
 @Styles.Render("~/Content/css")
 
+<div class="pure-g">
+    <div class="pure-u-1-2" id="column-left">
 
-
-
-
-<div id="background">
-    <br/>
-    <h1>Welcome To The Party!</h1>
-    <p>
-        Hi and welcome to our wonderful app we created to help with the end of phase parties. First off, if your a current student,
-        Congratulations on finishing your current phase. Trust us, we know how hard it can be. If your a returning student then welcome back to EDA and we hope you enjoy your night.
-    </p>
-    <p>
-        To use our application, simply click on the menu item you wish to order below, enter in your name into the form beside it.
-        Don't worry if you do not have a GitHub username, simply ask your partner for theirs
-    </p>
-
-    <div id="menu">
         <h2>Aroy Menu</h2>
+
+        <div id="menu">
+
+            <ul>
+                @{
+                    int count = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    count++;
+
+                    <li class="li:@count menulist">
+                        <div id="data" class="pure-g" data-menuitemid="@item.Id">
+                            <div class="pure-u-3-4">
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </p>
+                            </div>
+                            @if (item.Image != null)
+                            {
+
+                                <div class="pure-u-1-4">
+                                    <img src='@Url.Action("food", "images", new {id = item.Id})' />
+                                </div>
+                            }
+                        </div>
+
+                    </li>
+                }
+
+            </ul>
+        </div>
     </div>
 
-    <div id="col1">
+    <div class="pure-u-1-2" id="column-right">
+        <div>
+            <h2>Welcome To The Party!</h2>
+            <p>
+                Hi and welcome to our wonderful app we created to help with the end of phase parties. First off, if your a current student,
+                Congratulations on finishing your current phase. If your a returning student then welcome back to EDA and we hope you enjoy your night.
+            </p>
+            <p>
+                To use our application, simply click on the menu item you wish to order below, enter in your name into the form beside it.
+                Don't worry if you do not have a GitHub username, simply ask your partner for theirs
+            </p>
 
-        <ul>
-            @{
-                int count = 0;
-            }
-            @foreach (var item in Model)
-            {
-                count++;
+        </div>
+        <div>
+            <div id="order">
+                <h2>Order Details</h2>
+                <div id="form">
+                    <form>
+                        <p>Hi, your current order is</p>
+                        <input id="currentorder" type="text" name="Item" value="Your Meal" readonly>
+                        <input type="hidden" id="currentorderid" />
+                        <p>Name</p>
+                        <input id="currentuser" type="text" name="User" id="name" style="color: black;">
+                        <br />
+                        <button id="submitbutton" type="submit">Submit Order</button>
+                    </form>
+                </div>
 
-                <li class="li:@count menulist">
-                    <div class="left" data-menuitemid="@item.Id">@Html.DisplayFor(modelItem => item.Title)</div>
-                    @if (item.Image != null)
-                    {
-                        <div class="right"><img src='@Url.Action("food", "images", new {id = item.Id})'/>
-                        </div>
-                    }
-                </li>
-            }
-
-        </ul>
+            </div>
+        </div>
     </div>
     <button id="random" type="submit">Random</button>
-    <div id="col2">
-        <h2>Order Details</h2>
-        <form>
-            <p>Hi, your current order is:</p>
-            <input id="currentorder" type="text" name="Item" value="Your Meal" readonly>
-            <input type="hidden" id="currentorderid"/>
-            <p>Name:</p>
-            <input id="currentuser" type="text" name="User" id="name" style="color: black;">
-            
-            <br/>
-            <button id="submitbutton" type="submit">Submit Order</button>
-        </form>
 
-    </div>
 </div>
 

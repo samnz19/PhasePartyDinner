@@ -13,6 +13,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lobster|Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"/>
+    @*<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/base-min.css">*@
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
@@ -28,10 +29,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-
-                    <li>@Html.ActionLink("Summary", "Order", "Home")</li>
                     <li>@Html.ActionLink("Details", "Index", "OrderDetails")</li>
                     <li>@Html.ActionLink("Update", "Index", "Update")</li>
+                    <li>@Html.ActionLink("Order Summary", "Order", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
