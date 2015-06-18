@@ -28,8 +28,8 @@ namespace DinnerPartyRoa.Models
 
             IEnumerable<GroupedOrderViewModel> orderSummary = orders.GroupBy(m => m.Item.Title).Select(s => new GroupedOrderViewModel(){ItemName = s.Key, Quantity = s.Count()});
       
-            GitHubApiService gitHubApi = new GitHubApiService();
-            List<GitHubUser> users =  gitHubApi.GetGitHubUsers();
+            //GitHubApiService gitHubApi = new GitHubApiService();
+            //List<GitHubUser> users =  gitHubApi.GetGitHubUsers();
 
             return orderSummary;
 
