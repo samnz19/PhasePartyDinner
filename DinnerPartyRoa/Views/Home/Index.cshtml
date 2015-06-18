@@ -38,7 +38,7 @@
                 count++;
 
                 <li class="li:@count menulist">
-                    <div class="left" data-menuitemid="@item.Id">@Html.DisplayFor(modelItem => item.Title)</div>
+                    <div class="left" data-menuitemid="@item.Id"> @Html.DisplayFor(modelItem => item.Title)</div>
                     @if (item.Image != null)
                     {
                         <div class="right"><img src='@Url.Action("food", "images", new {id = item.Id})'/>
