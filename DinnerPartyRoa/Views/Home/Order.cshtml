@@ -1,8 +1,8 @@
 @using DinnerPartyRoa.Models
 @model YetAnotherViewModel
-
+<h1 class="heading">Order Summary</h1>
 <div id="OrderTable">
-
+    <hr/>
     <div>
         <br />
         <table class="pure-table pure-table-bordered">
@@ -26,18 +26,20 @@
         </table>
     </div>
 
-    <hr />
-    <div style="float:right">
+    <hr/>
+    <div id="orderedby">
+        <div>
 
-        @foreach (var keyvalue in Model.dictionaryOfUserOrders)
-        {
-
-            <h4>@keyvalue.Key</h4>
-            foreach (var username in keyvalue.Value)
+            @foreach (var keyvalue in Model.dictionaryOfUserOrders)
             {
-                <p> @username   </p>
-            }
-        }
 
+                <h4 id ="foodname">@keyvalue.Key</h4>
+                foreach (var username in keyvalue.Value)
+                {
+                    <p> @username </p>
+                }
+            }
+
+        </div>
     </div>
 </div>

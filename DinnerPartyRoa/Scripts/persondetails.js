@@ -12,7 +12,7 @@
 
         $('#currentorderid').attr("value", orderId);
         $('#currentorder').attr("value", currentSelectedItem);
-        $('#currentorder').css('color', 'blue');
+        $('#currentorder').css('color', 'black');
     });
 
     array = GetNames();

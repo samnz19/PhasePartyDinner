@@ -4,28 +4,36 @@
     min-height: 800px;
     font-family: Roboto;
     /*Nice gradient background*/
-    background: -webkit-linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* W3C */   
+    background-image: url("http://wallpaperest.com/wallpapers/gray-wood-pattern-ipad_094371.jpg");
+      
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: #ffffff;
-    background-color: rgba(255,255,255, 0.3);
+    background-color: #DF4A3B;
     color: black;
     min-height: 300px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
 }
 
+h1 {
+    font-family: Fjalla One;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
     white-space: normal;
+}
+
+.heading {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 50px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -35,17 +43,23 @@ textarea {
     max-width: 200px;
     text-align: left;
 }
+.edittable {
+    font-family: Montserrat;
+    margin-left: 30%;
+    
+    
+}
 
 
 #menu {
-    height: 650px;
+    height: 600px;
     overflow: hidden;
     overflow-y: scroll;
     border-style: solid;
-    color: white;
-    border-width: 1px;
+    color: whitesmoke;
+    border-width: 0;
     border-color: black;
-    background-color: black;
+    background-color: #222;
     margin: 40px 0 50px 30px ;
 }
 
@@ -57,16 +71,15 @@ textarea {
      padding-top: 20px;
      padding-left: 20px;
      font-size: 16px;
+     font-family: Montserrat;
  }
-
-
 
 #col3 {
     float:right;
     height:600px; width:40%;
     overflow:hidden; overflow-y:scroll;
     border-style: solid;
-    color: white;
+    color: whitesmoke;
     border-width: 1px;
     border-color: black;
     background-color: black;
@@ -84,16 +97,22 @@ textarea {
     font-size: 18px;
 }
 
+tbody::-webkit-scrollbar { 
+    display: none; 
+}
+
 .table tbody {
     
     float:left;
     height:500px; width:40%;
-    overflow:hidden; overflow-y:scroll;
+    overflow:hidden; 
+   
+    
     border-style: solid;
-    color: white;
-    border-width: 1px;
+    color: black;
+    border-width: 2px;
     border-color: black;
-    background-color: black;
+    background-color: whitesmoke;
 }
 
 .pic {
@@ -106,12 +125,16 @@ textarea {
     border-color: lightgrey;
 }
 
+menu ul {
+    border-color: #ccc;
+}
+
 .menulist:first-of-type {
         border-top-width: 2px;
 }
 
 .navbar {
-    font-family: Lobster;
+    font-family: Montserrat;
 }
 
 ul {
@@ -132,6 +155,7 @@ ul li {
     margin: 0 auto;
     width: 100%;
     margin-bottom: 50px;
+    font-family: Montserrat;
 }
 
 #OrderTable td {
@@ -145,7 +169,7 @@ ul li {
 #column-left h2 {
     text-align: center;
     color: whitesmoke;
-    font-family: Lobster;
+    font-family: Montserrat;
 }
 
 #column-right {
@@ -155,20 +179,64 @@ ul li {
 #column-right h2 {
     text-align: center;
     color: whitesmoke;
-    font-family: Lobster;
+    font-family: Montserrat;
 }
 
 #column-right p {
     font-size: 18px;
     margin-top: 40px;
+    color: whitesmoke;
 }
 
 #order {
     margin-top: 50px;
+    text-align: center;
 }
 
 #logo {
     margin-left: -100px;
     margin-top: -20px;
     height: 150px;
+}
+
+footer {
+    font-family: Montserrat;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.order-table {
+    font-family: Montserrat;
+}
+
+#orderedby {
+    text-align: center;
+    color: whitesmoke;
+}
+
+#foodname {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+#aroytable {
+    position: relative;
+}
+
+#updatebutton {
+    padding-left: 500px;
+    font-family: Montserrat;
+}
+
+.aroymenu {
+    padding-right: 40px;
+}
+
+.pure-u-1-2  #menu #hi {
+
+    color: whitesmoke;
+    margin-left: -20px;
+    margin-top: -10px;
+    font-size: 15px;
+    text-decoration: underline;
 }
