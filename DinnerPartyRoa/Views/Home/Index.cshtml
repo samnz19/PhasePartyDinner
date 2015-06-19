@@ -7,6 +7,9 @@
 
 @Styles.Render("~/Content/css")
 
+<h1 class="heading">DEValicious</h1>
+<hr />
+
 <div class="pure-g">
     <div class="pure-u-1-2" id="column-left">
 
@@ -53,17 +56,17 @@
                 Congratulations on finishing your current phase. If your a returning student then welcome back to EDA and we hope you enjoy your night.
             </p>
             <p>
-                To use our application, simply click on the menu item you wish to order below, enter in your name into the form beside it.
-                Don't worry if you do not have a GitHub username, simply ask your partner for theirs
+                To place an order, click a menu item, add you GitHub username and submit!
             </p>
 
         </div>
         <div>
             <div id="order">
+                <hr />
                 <h2>Order Details</h2>
                 <div id="form">
                     <form>
-                        <p>Hi, your current order is</p>
+                        <p>Menu Item</p>
                         <input id="currentorder" type="text" name="Item" value="Your Meal" readonly>
                         <input type="hidden" id="currentorderid" />
                         <p>Name</p>
@@ -74,9 +77,12 @@
                 </div>
 
             </div>
+
         </div>
+
     </div>
-    <button id="random" type="submit">Random</button>
+
+    @*<button id="random" type="submit">Random</button>*@
 
 </div>
 

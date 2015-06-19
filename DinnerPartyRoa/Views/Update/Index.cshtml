@@ -1,69 +1,65 @@
 ﻿@model DinnerPartyRoa.Models.ScrapperMenuViewModel
 <h1>Administration Page</h1>
-@*<div id ="heading">
-        <h2 style="float: left">Current</h2>
-        <h3 style="float:right">Aroy</h3>
-    </div><br/><br /><br />*@
 
 <div id="menu">
     <h2>Current Menu:</h2>
 </div>
 
-                    <div id="col1">
+<div id="col1">
 
-                        @foreach (var item in Model.DatabaseMenu)
-                        {
-                            <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
-                        }
-                    </div>
-
-
-                    <div id="menu"><h2>Aroy Menu:</h2></div>
-                            <div id="col3">
-                                        
-                                            @if (Model.ItemsAddedByArroySite==null && Model.ItemsDeletedByArroySite==null)
-                                            {
-                                                <div>
-                                                <h2>Updated</h2>
-                                                    </div>
-                                            }
-                                            else
-                                            {
-                                                <div>
-                                                <h3> Items Added newly to Arroy Site:</h3>
-                                                @if (Model.ItemsAddedByArroySite!=null && Model.ItemsAddedByArroySite.Any())
-                                                {
-                                                    foreach (var item in Model.ItemsAddedByArroySite)
-                                                    {
-                                                        <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    <p>No updates from ArroySite</p>
-                                                }
-
-                                                </div>
-
-
-                                                <div>
-                                                    <h3>Items deleted from ArroySet , but contained in the Database:</h3>
-                                                    @if (Model.ItemsDeletedByArroySite!=null && Model.ItemsDeletedByArroySite.Any())
-                                                    {
-                                                        
-                                                        foreach (var item in Model.ItemsDeletedByArroySite)
-                                                        {
-                                                            <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        <p>Database does not have items deleted from arroy site...</p>
-                                                    }
-                                                </div>
-                                            }
-                                </div>
-    @using (Html.BeginForm("Update", "Update"))
+    @foreach (var item in Model.DatabaseMenu)
     {
-        <button type="submit">Update</button>
+        <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
     }
+</div>
+
+
+<div id="menu"><h2>Aroy Menu:</h2></div>
+<div id="col3">
+
+    @if (Model.ItemsAddedByArroySite == null && Model.ItemsDeletedByArroySite == null)
+    {
+        <div>
+            <h2>Updated</h2>
+        </div>
+    }
+    else
+    {
+        <div>
+            <h3> Items Added newly to Arroy Site:</h3>
+            @if (Model.ItemsAddedByArroySite != null && Model.ItemsAddedByArroySite.Any())
+            {
+                foreach (var item in Model.ItemsAddedByArroySite)
+                {
+                    <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
+                }
+            }
+            else
+            {
+                <p>No updates from ArroySite</p>
+            }
+
+        </div>
+
+
+        <div>
+            <h3>Items deleted from ArroySet , but contained in the Database:</h3>
+            @if (Model.ItemsDeletedByArroySite != null && Model.ItemsDeletedByArroySite.Any())
+            {
+
+                foreach (var item in Model.ItemsDeletedByArroySite)
+                {
+                    <div class="left">@Html.DisplayFor(modelItem => item.Title)</div>
+                }
+            }
+            else
+            {
+                <p>Database does not have items deleted from arroy site...</p>
+            }
+        </div>
+    }
+</div>
+@using (Html.BeginForm("Update", "Update"))
+{
+    <button type="submit">Update</button>
+}
