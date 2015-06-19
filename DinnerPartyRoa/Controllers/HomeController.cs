@@ -44,7 +44,7 @@ namespace DinnerPartyRoa.Controllers
         {
             YetAnotherViewModel vm = new YetAnotherViewModel();
             OrderData data = new OrderData();
-            var dborders = db.Orders.ToList();
+            var dborders = db.Orders.ToList(); 
 
             foreach (var stuff in dborders)
             {
