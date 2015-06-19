@@ -16,10 +16,20 @@
         $('#currentorder').css('color', 'black');
     });
 
- 
+   
     array = GetNames();
     $("#currentuser").autocomplete({
-        source: array
+        source: array,
+        select: function (event, ui) {
+            $("#currentuser").val(ui.item.value);
+        }
+
+    });
+   
+    
+    $('#submitbutton').on('click', function (e) {
+        $("#currentuser").val()
+        console.log($("#currentuser").val())
     });
 
     //$('#menu').on('click', 'li', function () {
@@ -86,60 +96,40 @@ var GetNames = function () {
 
 
 
-
-
-
+//AngularJs
 
 var menuApp = angular.module('menuApp', []);
-console.log("HI");
+
 menuApp.controller('ListCtrl', function ($scope, $http) {
     $http.get('/api/MenuItemsapi').success(function (dataAng) {
-        console.log("Sup");
+
         $scope.meal = {};
         $scope.user = "";
 
         $scope.meals = dataAng;
-        console.log($scope.meals);
-        console.log($scope.meals[0].Title);
-
         $scope.menulist = function (meal) {
-            console.log("IDK");
-            console.log(meal);
 
             $scope.meal.Title = meal.Title;
             $scope.meal.Id = meal.Id;
-            console.log($scope.meal);
         }
 
-        $scope.submit = function() {
-
-            //$scope.meal.User = user;
-            //console.log(user);
-            //console.log($scope.meal);
+        $scope.submit = function () {
 
             var order = new Order();
             order.Item = $scope.meal.Title;
             order.ItemId = $scope.meal.Id;
             order.User = $scope.user;
 
-            console.log("hereeeee", order);
-
             $http.post('/api/orders/', order).
                 success(function () {
-                    console.log("It worked");
+                    alert("Order Placed!")
 
                     $scope.meal = {};
                     $scope.user = "";
-                    
+
                 });
         }
-
-
-    });
-
-   
-
-  
+    }); 
 });
 
 
