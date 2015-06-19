@@ -20,7 +20,6 @@
 
 }
 
-
 h1 {
     font-family: Fjalla One;
 }
@@ -33,7 +32,7 @@ h1 {
 
 .heading {
     text-align: center;
-    color: white;
+    color: whitesmoke;
     font-size: 50px;
 }
 
@@ -48,14 +47,16 @@ textarea {
     font-family: Montserrat;
     margin-left: 30%;
     
+    
 }
+
 
 #menu {
     height: 600px;
     overflow: hidden;
     overflow-y: scroll;
     border-style: solid;
-    color: white;
+    color: whitesmoke;
     border-width: 0;
     border-color: black;
     background-color: #222;
@@ -70,16 +71,15 @@ textarea {
      padding-top: 20px;
      padding-left: 20px;
      font-size: 16px;
+     font-family: Montserrat;
  }
-
-
 
 #col3 {
     float:right;
     height:600px; width:40%;
     overflow:hidden; overflow-y:scroll;
     border-style: solid;
-    color: white;
+    color: whitesmoke;
     border-width: 1px;
     border-color: black;
     background-color: black;
@@ -109,10 +109,10 @@ tbody::-webkit-scrollbar {
    
     
     border-style: solid;
-    color: white;
-    border-width: 1px;
+    color: black;
+    border-width: 2px;
     border-color: black;
-    background-color: black;
+    background-color: whitesmoke;
 }
 
 .pic {
@@ -219,3 +219,24 @@ footer {
     text-decoration: underline;
 }
 
+#aroytable {
+    position: relative;
+}
+
+#updatebutton {
+    padding-left: 500px;
+    font-family: Montserrat;
+}
+
+.aroymenu {
+    padding-right: 40px;
+}
+
+.pure-u-1-2  #menu #hi {
+
+    color: whitesmoke;
+    margin-left: -20px;
+    margin-top: -10px;
+    font-size: 15px;
+    text-decoration: underline;
+}
