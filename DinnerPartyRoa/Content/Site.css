@@ -4,11 +4,11 @@
     min-height: 800px;
     font-family: Roboto;
     /*Nice gradient background*/
-    background: -webkit-linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #000000 10%, #e74c3c 90%); /* W3C */   
+    background: -webkit-linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #59544F 10%, #e74c3c 90%); /* W3C */   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -165,4 +165,10 @@ ul li {
 
 #order {
     margin-top: 50px;
+}
+
+#logo {
+    margin-left: -100px;
+    margin-top: -20px;
+    height: 150px;
 }
