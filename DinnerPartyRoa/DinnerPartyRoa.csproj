@@ -240,6 +240,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="logoEnspiralDevAcademy.png" />
     <Content Include="Scripts\App\App.js" />
     <Content Include="Scripts\App\Controller\MenuItemController.js" />
     <Content Include="Scripts\App\Model\MenuItemsModel.js" />
