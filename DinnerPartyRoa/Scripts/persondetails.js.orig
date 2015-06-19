@@ -3,7 +3,8 @@
     var array = [];
     var currentSelectedItem = "";
 
-   
+<<<<<<< HEAD
+=======
     $('#menu').on('click', 'li', function () {
         $('#currentorder').empty();
         currentSelectedItem = $.trim($(this).text());
@@ -16,7 +17,7 @@
         $('#currentorder').css('color', 'black');
     });
 
- 
+>>>>>>> master
     array = GetNames();
     $("#currentuser").autocomplete({
         source: array
