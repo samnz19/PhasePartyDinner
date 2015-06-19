@@ -69,8 +69,12 @@ namespace DinnerPartyRoa.services
                     foreach (var articleNode in articleNodes)
                     {
                         var titleNode = articleNode.SelectSingleNode("p");
+                        
                         var imageNode = articleNode.SelectSingleNode("a/img");
-
+                        if (imageNode == null)
+                        {
+                            imageNode = articleNode.SelectSingleNode("p/a/img");
+                        }
                         var title = WebUtility.HtmlDecode(titleNode.InnerText.Trim());
 
                         if (!string.IsNullOrEmpty(title))

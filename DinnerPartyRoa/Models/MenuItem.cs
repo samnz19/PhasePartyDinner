@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace DinnerPartyRoa.Models
 {
@@ -9,6 +10,7 @@ namespace DinnerPartyRoa.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        [JsonIgnore]
         public byte[] Image { get; set; }
 
         public int IsDeleted { get; set; }
