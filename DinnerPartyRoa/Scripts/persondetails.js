@@ -16,45 +16,21 @@
         $('#currentorder').css('color', 'black');
     });
 
- 
+
     array = GetNames();
-    $("#currentuser").autocomplete({
-        source: array
+
+    $(function () {
+        var userList = $("#currentuser").autocomplete({
+            source: array,
+            change: function(event, ui) {
+                var val = ui.item.value;
+                $('#currentuser').attr('value', val)
+                //$('#currentuser').val(val)
+                          },
+           });
     });
-
-    //$('#menu').on('click', 'li', function () {
-    //    $('#currentorder').empty();
-    //    currentSelectedItem = $.trim($(this).text());
-
-    //    var orderDiv = $(this).find("#data")[0];
-    //    var orderId = $(orderDiv).data("menuitemid");
-
-    //    $('#currentorderid').attr("value", orderId);
-    //    $('#currentorder').attr("value", currentSelectedItem);
-    //    $('#currentorder').css('color', 'blue');
-    //});
-
-
-    //$('#submitbutton').on('click', function (e) {
-    //    e.preventDefault();
-    //    var order = new Order();
-    //    order.Item = $('#currentorder').val();
-    //   order.ItemId = $('#currentorderid').val();
-
-    //    order.User = $('#currentuser').val();
-
-    //    $.ajax({
-    //        type: 'POST',
-    //        url: '/api/orders/',
-    //        data: order,
-
-    //        datatype: 'json',
-    //        success: function () {
-    //            alert("Order Placed!");
-    //        }
-    //    });
-
-    //});
+   
+ 
 
  });
 
@@ -86,64 +62,55 @@ var GetNames = function () {
 
 
 
-
-
-
-
+//AngularJs
 var menuApp = angular.module('menuApp', []);
-console.log("HI");
+
 menuApp.controller('ListCtrl', function ($scope, $http) {
     $http.get('/api/MenuItemsapi').success(function (dataAng) {
-        console.log("Sup");
+
         $scope.meal = {};
         $scope.user = "";
 
         $scope.meals = dataAng;
-        console.log($scope.meals);
-        console.log($scope.meals[0].Title);
+        console.log(dataAng)
 
         $scope.menulist = function (meal) {
-            console.log("IDK");
-            console.log(meal);
 
             $scope.meal.Title = meal.Title;
             $scope.meal.Id = meal.Id;
-            console.log($scope.meal);
+            console.log(meal.Title)            
         }
 
-        $scope.submit = function() {
+        $scope.test = function () {
 
-            //$scope.meal.User = user;
-            //console.log(user);
-            //console.log($scope.meal);
+            console.log($scope.user)      // problem being that doesnt registor jquery change function as a change to scope        
+           
+        }
+
+        $scope.submit = function () {
+
+            console.log($scope.user)              //uhmmmmmmmmmmm....nice autoupdate...
+            console.log($('#currentuser').val()) //isnt this the same?
+
 
             var order = new Order();
             order.Item = $scope.meal.Title;
             order.ItemId = $scope.meal.Id;
-            order.User = $scope.user;
-
-            console.log("hereeeee", order);
+            order.User = $('#currentuser').val();  //total legit..............
 
             $http.post('/api/orders/', order).
                 success(function () {
-                    console.log("It worked");
+                    alert("Order Placed!")
 
                     $scope.meal = {};
                     $scope.user = "";
-                    
+
                 });
         }
-
-
     });
-
-   
-
-  
 });
 
 
-    
 
 
 
@@ -152,3 +119,36 @@ menuApp.controller('ListCtrl', function ($scope, $http) {
 
 
 
+//$('#menu').on('click', 'li', function () {
+//    $('#currentorder').empty();
+//    currentSelectedItem = $.trim($(this).text());
+
+//    var orderDiv = $(this).find("#data")[0];
+//    var orderId = $(orderDiv).data("menuitemid");
+
+//    $('#currentorderid').attr("value", orderId);
+//    $('#currentorder').attr("value", currentSelectedItem);
+//    $('#currentorder').css('color', 'blue');
+//});
+
+
+//$('#submitbutton').on('click', function (e) {
+//    e.preventDefault();
+//    var order = new Order();
+//    order.Item = $('#currentorder').val();
+//   order.ItemId = $('#currentorderid').val();
+
+//    order.User = $('#currentuser').val();
+
+//    $.ajax({
+//        type: 'POST',
+//        url: '/api/orders/',
+//        data: order,
+
+//        datatype: 'json',
+//        success: function () {
+//            alert("Order Placed!");
+//        }
+//    });
+
+//});
