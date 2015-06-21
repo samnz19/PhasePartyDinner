@@ -57,7 +57,7 @@ var GetNames = function () {
     var array = [];
     $.ajax({
         type: "GET",
-        url: "https://api.github.com/orgs/enspiral-dev-academy/members?access_token=b71c0b279059b2b33bc5b2f0bac3db3807cd6826",
+        url: "https://api.github.com/orgs/enspiral-dev-academy/members?access_token=b71c0b279059b2b33bc5b2f0bac3db3807cd6826&per_page=100",
         success: function (data) {
 
             for (var key in data) {
