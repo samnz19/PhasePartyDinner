@@ -20,7 +20,6 @@
             <h2>Aroy Menu</h2>
             
             Search: <input ng-model="query">
-            <p><autocomplete ng-model="newmovies" data="gitdata" on-type="updateMovies"></autocomplete></p>
             <div id="menu">
                 <ul class="meals">
                     <li ng-repeat="meal in meals | filter:query" class="pure-g" ng-click="menulist(meal)">
@@ -57,10 +56,10 @@
                                 <input type="hidden" id="currentorderid" />
                                 <p>Name</p>
                                 <input ng-model="user" id="currentuser" type="text" name="User" style="color: black;">
-                               
-                                <br />
                                 <button ng-click="submit()" id="submitbutton" type="submit">Submit Order</button>
-                                @*<button ng-click="test()" id="submitbutton" type="submit">Test Button</button>*@
+                                <button ng-click="random()" id="submitbutton" type="submit">Random Button</button>
+                                <br />
+    
                             </form>
                            
                         </div>

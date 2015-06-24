@@ -27,7 +27,23 @@ menuApp.controller('ListCtrl', function ($scope, $http) {
                 });
             });
         });
-          
+    $scope.random = function () {
+        // get the menu list randomly
+        $http.get('/api/MenuItemsapi/')
+        .then(function (response) {
+
+            var $db = response.data;
+            var $count = $db.length;
+            var index = Math.floor(Math.random() * $count + 1);
+            var $object = $db[index];
+            console.log("randddddddddddd", $object);
+            $scope.meal.Title = $object.Title;
+            $scope.meal.Id = $object.Id;
+
+
+        });
+
+    }
 
     $http.get('/api/MenuItemsapi').success(function (dataAng) {
 
