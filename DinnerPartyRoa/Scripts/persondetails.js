@@ -1,6 +1,8 @@
 ﻿//AngularJs
 var menuApp = angular.module('menuApp', []);
 
+var app = angular.module('app', ['autocomplete']);
+
 function Order() {
     User = null;
     Item = null;
@@ -15,49 +17,36 @@ menuApp.controller('ListCtrl', function ($scope, $http) {
                 array.push(data[key].login);
             }
 
-            $(function () {                                        //
+            $(function () {                                        //jquery
                 var userList = $("#currentuser").autocomplete({
                     source: array,
                     change: function (event, ui) {
                         var val = ui.item.value;
-                        $('#currentuser').attr('value', val)
+                        $('#currentuser').attr('value', val).trigger('input');
                     },
                 });
             });
-            $scope.gitdata = array;         
         });
- 
+          
 
     $http.get('/api/MenuItemsapi').success(function (dataAng) {
 
         $scope.meal = {};
         $scope.user = "";
-
         $scope.meals = dataAng;
-        console.log(dataAng)
-
+       
         $scope.menulist = function (meal) {
 
             $scope.meal.Title = meal.Title;
-            $scope.meal.Id = meal.Id;
-            console.log(meal.Title)            
+            $scope.meal.Id = meal.Id;         
         }
-
-        $scope.test = function () {
-
-            console.log($scope.user)                
-        }
-        
+               
         $scope.submit = function () {        
-                           
-            console.log($scope.user)               // doesnt registor jquery change as a change to scope       
-            console.log($('#currentuser').val())
-
-
+        
             var order = new Order();
             order.Item = $scope.meal.Title;
             order.ItemId = $scope.meal.Id;
-            order.User = $('#currentuser').val();
+            order.User = $scope.user;
 
             $http.post('/api/orders/', order).
                 success(function () {
